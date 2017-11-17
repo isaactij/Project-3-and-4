@@ -31,7 +31,8 @@ namespace Project_3_and_4
 
         private void Teacher_Create_Assignment_Load(object sender, EventArgs e)
         {
-
+            //System.Diagnostics.Debug.WriteLine("test");
+            skills_List = read_skills_from_file("list_of_skills.txt");
         }
 
         private void Create_Button_Click(object sender, EventArgs e)
@@ -157,6 +158,24 @@ namespace Project_3_and_4
             }
             reader.Close();
             return questions_For_Assignment_File;
+        }
+
+        private String[] read_skills_from_file(String fileName)
+        {
+            StreamReader reader = new StreamReader(fileName);
+            String line = reader.ReadLine();
+            String[] skills_list = line.Split(';');
+            return skills_list;
+        }
+
+        private void Import_Question_Bank_Click(object sender, EventArgs e)
+        {
+            openQuestionFileDialog.ShowDialog();
+        }
+
+        private void openQuestionFileDialog_FileOk(object sender, CancelEventArgs e)
+        {
+            Question_file_name_label.Text = openQuestionFileDialog.SafeFileName;
         }
     }
 }
