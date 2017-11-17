@@ -28,12 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.Create_Button = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // Create_Button
+            // 
+            this.Create_Button.Location = new System.Drawing.Point(58, 100);
+            this.Create_Button.Name = "Create_Button";
+            this.Create_Button.Size = new System.Drawing.Size(75, 23);
+            this.Create_Button.TabIndex = 0;
+            this.Create_Button.Text = "Create";
+            this.Create_Button.UseVisualStyleBackColor = true;
+            this.Create_Button.Click += new System.EventHandler(this.Create_Button_Click);
             // 
             // Teacher_Create_Assignment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.Create_Button);
             this.Name = "Teacher_Create_Assignment";
             this.Load += new System.EventHandler(this.Teacher_Create_Assignment_Load);
             this.ResumeLayout(false);
@@ -41,5 +53,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Button Create_Button;
     }
 }
