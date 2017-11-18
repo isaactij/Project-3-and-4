@@ -20,3 +20,4 @@ D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Projec
 D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Project3&4Rep\Project 3 and 4\Project 3 and 4\obj\Debug\Project 3 and 4.csproj.CoreCompileInputs.cache
 D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Project3&4Rep\Project 3 and 4\Project 3 and 4\obj\Debug\Project 3 and 4.exe
 D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Project3&4Rep\Project 3 and 4\Project 3 and 4\obj\Debug\Project 3 and 4.pdb
+D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Project3&4Rep\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.Report_Assignments.resources
