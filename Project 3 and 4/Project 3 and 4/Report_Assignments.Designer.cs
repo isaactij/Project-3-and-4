@@ -30,21 +30,21 @@
         {
             this.Page_Title_Label = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.Column_One_List = new System.Windows.Forms.ListBox();
             this.Column_Two_List = new System.Windows.Forms.ListBox();
             this.Column_Three_List = new System.Windows.Forms.ListBox();
             this.Column_Four_List = new System.Windows.Forms.ListBox();
-            this.Column_One_Label = new System.Windows.Forms.Label();
             this.Column_Two_Label = new System.Windows.Forms.Label();
             this.Column_Three_Label = new System.Windows.Forms.Label();
             this.Column_Four_Label = new System.Windows.Forms.Label();
+            this.Column_One_List = new System.Windows.Forms.ListBox();
+            this.Column_One_Label = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Page_Title_Label
             // 
             this.Page_Title_Label.AutoSize = true;
-            this.Page_Title_Label.Location = new System.Drawing.Point(13, 11);
+            this.Page_Title_Label.Location = new System.Drawing.Point(3, 0);
             this.Page_Title_Label.Name = "Page_Title_Label";
             this.Page_Title_Label.Size = new System.Drawing.Size(101, 13);
             this.Page_Title_Label.TabIndex = 0;
@@ -76,15 +76,6 @@
             this.tableLayoutPanel1.TabIndex = 1;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
-            // Column_One_List
-            // 
-            this.Column_One_List.FormattingEnabled = true;
-            this.Column_One_List.Location = new System.Drawing.Point(3, 23);
-            this.Column_One_List.Name = "Column_One_List";
-            this.Column_One_List.Size = new System.Drawing.Size(89, 329);
-            this.Column_One_List.TabIndex = 0;
-            this.Column_One_List.SelectedIndexChanged += new System.EventHandler(this.Column_One_List_SelectedIndexChanged);
-            // 
             // Column_Two_List
             // 
             this.Column_Two_List.FormattingEnabled = true;
@@ -112,15 +103,6 @@
             this.Column_Four_List.TabIndex = 3;
             this.Column_Four_List.SelectedIndexChanged += new System.EventHandler(this.Column_Four_List_SelectedIndexChanged);
             // 
-            // Column_One_Label
-            // 
-            this.Column_One_Label.AutoSize = true;
-            this.Column_One_Label.Location = new System.Drawing.Point(3, 0);
-            this.Column_One_Label.Name = "Column_One_Label";
-            this.Column_One_Label.Size = new System.Drawing.Size(84, 13);
-            this.Column_One_Label.TabIndex = 4;
-            this.Column_One_Label.Text = "Assignment Title";
-            // 
             // Column_Two_Label
             // 
             this.Column_Two_Label.AutoSize = true;
@@ -147,6 +129,24 @@
             this.Column_Four_Label.Size = new System.Drawing.Size(79, 13);
             this.Column_Four_Label.TabIndex = 7;
             this.Column_Four_Label.Text = "Average Grade";
+            // 
+            // Column_One_List
+            // 
+            this.Column_One_List.FormattingEnabled = true;
+            this.Column_One_List.Location = new System.Drawing.Point(3, 23);
+            this.Column_One_List.Name = "Column_One_List";
+            this.Column_One_List.Size = new System.Drawing.Size(89, 329);
+            this.Column_One_List.TabIndex = 0;
+            this.Column_One_List.SelectedIndexChanged += new System.EventHandler(this.Column_One_List_SelectedIndexChanged);
+            // 
+            // Column_One_Label
+            // 
+            this.Column_One_Label.AutoSize = true;
+            this.Column_One_Label.Location = new System.Drawing.Point(3, 0);
+            this.Column_One_Label.Name = "Column_One_Label";
+            this.Column_One_Label.Size = new System.Drawing.Size(84, 13);
+            this.Column_One_Label.TabIndex = 4;
+            this.Column_One_Label.Text = "Assignment Title";
             // 
             // Report_Assignments
             // 
