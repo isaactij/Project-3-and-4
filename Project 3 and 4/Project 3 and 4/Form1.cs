@@ -19,7 +19,7 @@ namespace Project_3_and_4
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var myControl = new Teacher_Create_Assignment();
+            var myControl = new Report_Skills();
             panel1.Controls.Add(myControl);
         }
 

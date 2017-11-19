@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.Page_Title_Label = new System.Windows.Forms.Label();
             this.Column_One_Label = new System.Windows.Forms.Label();
             this.Column_Two_Label = new System.Windows.Forms.Label();
             this.Column_One_List = new System.Windows.Forms.ListBox();
             this.Column_Two_List = new System.Windows.Forms.ListBox();
+            this.Page_Title_Label = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,15 +54,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.62881F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(380, 361);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // Page_Title_Label
-            // 
-            this.Page_Title_Label.AutoSize = true;
-            this.Page_Title_Label.Location = new System.Drawing.Point(0, 0);
-            this.Page_Title_Label.Name = "Page_Title_Label";
-            this.Page_Title_Label.Size = new System.Drawing.Size(66, 13);
-            this.Page_Title_Label.TabIndex = 1;
-            this.Page_Title_Label.Text = "Skills Report";
             // 
             // Column_One_Label
             // 
@@ -89,6 +80,7 @@
             this.Column_One_List.Name = "Column_One_List";
             this.Column_One_List.Size = new System.Drawing.Size(184, 329);
             this.Column_One_List.TabIndex = 2;
+            this.Column_One_List.SelectedIndexChanged += new System.EventHandler(this.Column_One_List_SelectedIndexChanged);
             // 
             // Column_Two_List
             // 
@@ -97,6 +89,16 @@
             this.Column_Two_List.Name = "Column_Two_List";
             this.Column_Two_List.Size = new System.Drawing.Size(184, 329);
             this.Column_Two_List.TabIndex = 3;
+            this.Column_Two_List.SelectedIndexChanged += new System.EventHandler(this.Column_Two_List_SelectedIndexChanged);
+            // 
+            // Page_Title_Label
+            // 
+            this.Page_Title_Label.AutoSize = true;
+            this.Page_Title_Label.Location = new System.Drawing.Point(0, 0);
+            this.Page_Title_Label.Name = "Page_Title_Label";
+            this.Page_Title_Label.Size = new System.Drawing.Size(66, 13);
+            this.Page_Title_Label.TabIndex = 1;
+            this.Page_Title_Label.Text = "Skills Report";
             // 
             // Report_Skills
             // 
@@ -106,6 +108,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Report_Skills";
             this.Size = new System.Drawing.Size(380, 410);
+            this.Load += new System.EventHandler(this.Report_Skills_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

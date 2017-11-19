@@ -38,7 +38,9 @@
             this.Column_Four_Label = new System.Windows.Forms.Label();
             this.Column_One_List = new System.Windows.Forms.ListBox();
             this.Column_One_Label = new System.Windows.Forms.Label();
+            this._Project3_4DatabaseDataSet1 = new Project_3_and_4._Project3_4DatabaseDataSet();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._Project3_4DatabaseDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // Page_Title_Label
@@ -148,6 +150,11 @@
             this.Column_One_Label.TabIndex = 4;
             this.Column_One_Label.Text = "Assignment Title";
             // 
+            // _Project3_4DatabaseDataSet1
+            // 
+            this._Project3_4DatabaseDataSet1.DataSetName = "_Project3_4DatabaseDataSet";
+            this._Project3_4DatabaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // Report_Assignments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -159,6 +166,7 @@
             this.Load += new System.EventHandler(this.Report_Assignments_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._Project3_4DatabaseDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,7 +182,10 @@
         private System.Windows.Forms.Label Column_Two_Label;
         private System.Windows.Forms.Label Column_Three_Label;
         private System.Windows.Forms.Label Column_Four_Label;
-        private System.Windows.Forms.ListBox Column_One_List;
         private System.Windows.Forms.Label Column_One_Label;
+        private _Project3_4DatabaseDataSet _Project3_4DatabaseDataSet1;
+        private System.Windows.Forms.ListBox Column_One_List;
+
+
     }
 }

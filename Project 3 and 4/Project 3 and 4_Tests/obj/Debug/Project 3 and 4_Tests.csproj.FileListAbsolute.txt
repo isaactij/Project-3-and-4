@@ -14,3 +14,4 @@ D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Projec
 D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Project3&4Rep\Project 3 and 4\Project 3 and 4_Tests\obj\Debug\Project 3 and 4_Tests.csproj.CoreCompileInputs.cache
 D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Project3&4Rep\Project 3 and 4\Project 3 and 4_Tests\obj\Debug\Project 3 and 4_Tests.dll
 D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Project3&4Rep\Project 3 and 4\Project 3 and 4_Tests\obj\Debug\Project 3 and 4_Tests.pdb
+D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Project3&4Rep\Project 3 and 4\Project 3 and 4_Tests\bin\Debug\Project 3 and 4_Tests.dll.config

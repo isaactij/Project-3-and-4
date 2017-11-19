@@ -71,6 +71,14 @@
     <Compile Include="Teacher_Create_Assignment.Designer.cs">
       <DependentUpon>Teacher_Create_Assignment.cs</DependentUpon>
     </Compile>
+    <Compile Include="_Project3_4DatabaseDataSet.cs">
+      <DependentUpon>_Project3_4DatabaseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_Project3_4DatabaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Project3_4DatabaseDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,6 +109,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="_Project3_4DatabaseDataSet.xsc">
+      <DependentUpon>_Project3_4DatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_Project3_4DatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_Project3_4DatabaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_Project3_4DatabaseDataSet.xss">
+      <DependentUpon>_Project3_4DatabaseDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
