@@ -17,7 +17,7 @@ namespace Project_3_and_4
         bool errors = false;
         int teacher_ID;//Change later
         _Project3_4DatabaseDataSetTableAdapters.Nov17_AssignmentsTableAdapter assignments_Adapter;
-
+        bool display_Information;
 
         public Teacher_Create_Assignment()
         {
@@ -28,6 +28,7 @@ namespace Project_3_and_4
         {
             //System.Diagnostics.Debug.WriteLine("test");
             skills_List = read_skills_from_file("list_of_skills.txt");
+            display_Information = false;
         }
 
         private void Create_Button_Click(object sender, EventArgs e)
@@ -294,6 +295,19 @@ namespace Project_3_and_4
         private void openQuestionFileDialog_FileOk(object sender, CancelEventArgs e)
         {
             Question_file_name_label.Text = openQuestionFileDialog.SafeFileName;
+        }
+
+        private void Information_Button_Click(object sender, EventArgs e)
+        {
+            if (display_Information)
+            {
+                Information_Label.Text = "";
+                display_Information = false;
+            }
+            else {
+                Information_Label.Text = "Please choose a .txt file that has the questions and answers stored like such:\nquestion1; 1correctAnswer; 1wrongAnswer1; 1wrongAnswer2; 1wrongAnswer3\nquestion2; 2correctAnswer; 2wrongAnswer1; 2wrongAnswer2; 2wrongAnswer3";
+                display_Information = true;
+            }
         }
     }
 }

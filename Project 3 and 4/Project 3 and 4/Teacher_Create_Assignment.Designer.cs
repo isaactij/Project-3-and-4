@@ -49,6 +49,8 @@
             this.remove_skill_button = new System.Windows.Forms.Button();
             this.openQuestionFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.Error_Label = new System.Windows.Forms.Label();
+            this.Information_Button = new System.Windows.Forms.Button();
+            this.Information_Label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Create_Button
@@ -241,10 +243,31 @@
             this.Error_Label.Size = new System.Drawing.Size(0, 13);
             this.Error_Label.TabIndex = 19;
             // 
+            // Information_Button
+            // 
+            this.Information_Button.Location = new System.Drawing.Point(213, 334);
+            this.Information_Button.Name = "Information_Button";
+            this.Information_Button.Size = new System.Drawing.Size(24, 24);
+            this.Information_Button.TabIndex = 20;
+            this.Information_Button.Text = "?";
+            this.Information_Button.UseVisualStyleBackColor = true;
+            this.Information_Button.Click += new System.EventHandler(this.Information_Button_Click);
+            // 
+            // Information_Label
+            // 
+            this.Information_Label.AutoSize = true;
+            this.Information_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Information_Label.Location = new System.Drawing.Point(244, 334);
+            this.Information_Label.Name = "Information_Label";
+            this.Information_Label.Size = new System.Drawing.Size(0, 13);
+            this.Information_Label.TabIndex = 21;
+            // 
             // Teacher_Create_Assignment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.Information_Label);
+            this.Controls.Add(this.Information_Button);
             this.Controls.Add(this.Error_Label);
             this.Controls.Add(this.remove_skill_button);
             this.Controls.Add(this.Assignment_Title_TextBox);
@@ -296,5 +319,7 @@
         private System.Windows.Forms.Button remove_skill_button;
         private System.Windows.Forms.OpenFileDialog openQuestionFileDialog;
         private System.Windows.Forms.Label Error_Label;
+        private System.Windows.Forms.Button Information_Button;
+        private System.Windows.Forms.Label Information_Label;
     }
 }
