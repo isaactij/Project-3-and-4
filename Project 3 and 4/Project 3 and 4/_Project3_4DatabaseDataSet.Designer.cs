@@ -50,6 +50,10 @@ namespace Project_3_and_4 {
         
         private global::System.Data.DataRelation relationFK_Nov17_Assignments_Nov17_Assignment_Types;
         
+        private global::System.Data.DataRelation relationFK_Nov17_Assignments_Nov18_Teachers;
+        
+        private global::System.Data.DataRelation relationFK_Nov17_Skills_Nov18_Teachers;
+        
         private global::System.Data.DataRelation relationFK_Nov17_Skills_In_Assignments_Nov17_Assignments;
         
         private global::System.Data.DataRelation relationFK_Nov17_Skills_In_Assignments_Nov17_Skills;
@@ -481,6 +485,8 @@ namespace Project_3_and_4 {
                 }
             }
             this.relationFK_Nov17_Assignments_Nov17_Assignment_Types = this.Relations["FK_Nov17_Assignments_Nov17_Assignment_Types"];
+            this.relationFK_Nov17_Assignments_Nov18_Teachers = this.Relations["FK_Nov17_Assignments_Nov18_Teachers"];
+            this.relationFK_Nov17_Skills_Nov18_Teachers = this.Relations["FK_Nov17_Skills_Nov18_Teachers"];
             this.relationFK_Nov17_Skills_In_Assignments_Nov17_Assignments = this.Relations["FK_Nov17_Skills_In_Assignments_Nov17_Assignments"];
             this.relationFK_Nov17_Skills_In_Assignments_Nov17_Skills = this.Relations["FK_Nov17_Skills_In_Assignments_Nov17_Skills"];
             this.relationFK_Nov17_Student_Groups_Nov17_Groups = this.Relations["FK_Nov17_Student_Groups_Nov17_Groups"];
@@ -529,6 +535,14 @@ namespace Project_3_and_4 {
                         this.tableNov17_Assignment_Types.Assignment_Type_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableNov17_Assignments.Assignment_Type_IDColumn}, false);
             this.Relations.Add(this.relationFK_Nov17_Assignments_Nov17_Assignment_Types);
+            this.relationFK_Nov17_Assignments_Nov18_Teachers = new global::System.Data.DataRelation("FK_Nov17_Assignments_Nov18_Teachers", new global::System.Data.DataColumn[] {
+                        this.tableNov18_Teachers.Teacher_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableNov17_Assignments.Teacher_IDColumn}, false);
+            this.Relations.Add(this.relationFK_Nov17_Assignments_Nov18_Teachers);
+            this.relationFK_Nov17_Skills_Nov18_Teachers = new global::System.Data.DataRelation("FK_Nov17_Skills_Nov18_Teachers", new global::System.Data.DataColumn[] {
+                        this.tableNov18_Teachers.Teacher_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableNov17_Skills.Teacher_IDColumn}, false);
+            this.Relations.Add(this.relationFK_Nov17_Skills_Nov18_Teachers);
             this.relationFK_Nov17_Skills_In_Assignments_Nov17_Assignments = new global::System.Data.DataRelation("FK_Nov17_Skills_In_Assignments_Nov17_Assignments", new global::System.Data.DataColumn[] {
                         this.tableNov17_Assignments.Assignment_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableNov17_Skills_In_Assignments.Assignment_IDColumn}, false);
@@ -1029,6 +1043,8 @@ namespace Project_3_and_4 {
             
             private global::System.Data.DataColumn columnAssignment_Type_ID;
             
+            private global::System.Data.DataColumn columnTeacher_ID;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public Nov17_AssignmentsDataTable() {
@@ -1104,6 +1120,14 @@ namespace Project_3_and_4 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Teacher_IDColumn {
+                get {
+                    return this.columnTeacher_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1139,16 +1163,20 @@ namespace Project_3_and_4 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public Nov17_AssignmentsRow AddNov17_AssignmentsRow(string Assignment_Title, string Assignment_Description, string Assignment_Questions, Nov17_Assignment_TypesRow parentNov17_Assignment_TypesRowByFK_Nov17_Assignments_Nov17_Assignment_Types) {
+            public Nov17_AssignmentsRow AddNov17_AssignmentsRow(string Assignment_Title, string Assignment_Description, string Assignment_Questions, Nov17_Assignment_TypesRow parentNov17_Assignment_TypesRowByFK_Nov17_Assignments_Nov17_Assignment_Types, Nov18_TeachersRow parentNov18_TeachersRowByFK_Nov17_Assignments_Nov18_Teachers) {
                 Nov17_AssignmentsRow rowNov17_AssignmentsRow = ((Nov17_AssignmentsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Assignment_Title,
                         Assignment_Description,
                         Assignment_Questions,
+                        null,
                         null};
                 if ((parentNov17_Assignment_TypesRowByFK_Nov17_Assignments_Nov17_Assignment_Types != null)) {
                     columnValuesArray[4] = parentNov17_Assignment_TypesRowByFK_Nov17_Assignments_Nov17_Assignment_Types[0];
+                }
+                if ((parentNov18_TeachersRowByFK_Nov17_Assignments_Nov18_Teachers != null)) {
+                    columnValuesArray[5] = parentNov18_TeachersRowByFK_Nov17_Assignments_Nov18_Teachers[0];
                 }
                 rowNov17_AssignmentsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowNov17_AssignmentsRow);
@@ -1184,6 +1212,7 @@ namespace Project_3_and_4 {
                 this.columnAssignment_Description = base.Columns["Assignment Description"];
                 this.columnAssignment_Questions = base.Columns["Assignment Questions"];
                 this.columnAssignment_Type_ID = base.Columns["Assignment_Type ID"];
+                this.columnTeacher_ID = base.Columns["Teacher ID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1199,6 +1228,8 @@ namespace Project_3_and_4 {
                 base.Columns.Add(this.columnAssignment_Questions);
                 this.columnAssignment_Type_ID = new global::System.Data.DataColumn("Assignment_Type ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAssignment_Type_ID);
+                this.columnTeacher_ID = new global::System.Data.DataColumn("Teacher ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTeacher_ID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnAssignment_ID}, true));
                 this.columnAssignment_ID.AutoIncrement = true;
@@ -1214,6 +1245,7 @@ namespace Project_3_and_4 {
                 this.columnAssignment_Questions.AllowDBNull = false;
                 this.columnAssignment_Questions.MaxLength = 2147483647;
                 this.columnAssignment_Type_ID.AllowDBNull = false;
+                this.columnTeacher_ID.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1629,6 +1661,8 @@ namespace Project_3_and_4 {
             
             private global::System.Data.DataColumn columnSkill_Name;
             
+            private global::System.Data.DataColumn columnTeacher_ID;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public Nov17_SkillsDataTable() {
@@ -1680,6 +1714,14 @@ namespace Project_3_and_4 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Teacher_IDColumn {
+                get {
+                    return this.columnTeacher_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1715,11 +1757,15 @@ namespace Project_3_and_4 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public Nov17_SkillsRow AddNov17_SkillsRow(string Skill_Name) {
+            public Nov17_SkillsRow AddNov17_SkillsRow(string Skill_Name, Nov18_TeachersRow parentNov18_TeachersRowByFK_Nov17_Skills_Nov18_Teachers) {
                 Nov17_SkillsRow rowNov17_SkillsRow = ((Nov17_SkillsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Skill_Name};
+                        Skill_Name,
+                        null};
+                if ((parentNov18_TeachersRowByFK_Nov17_Skills_Nov18_Teachers != null)) {
+                    columnValuesArray[2] = parentNov18_TeachersRowByFK_Nov17_Skills_Nov18_Teachers[0];
+                }
                 rowNov17_SkillsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowNov17_SkillsRow);
                 return rowNov17_SkillsRow;
@@ -1751,6 +1797,7 @@ namespace Project_3_and_4 {
             internal void InitVars() {
                 this.columnSkill_ID = base.Columns["Skill ID"];
                 this.columnSkill_Name = base.Columns["Skill Name"];
+                this.columnTeacher_ID = base.Columns["Teacher ID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1760,6 +1807,8 @@ namespace Project_3_and_4 {
                 base.Columns.Add(this.columnSkill_ID);
                 this.columnSkill_Name = new global::System.Data.DataColumn("Skill Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSkill_Name);
+                this.columnTeacher_ID = new global::System.Data.DataColumn("Teacher ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTeacher_ID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnSkill_ID}, true));
                 this.columnSkill_ID.AutoIncrement = true;
@@ -1770,6 +1819,7 @@ namespace Project_3_and_4 {
                 this.columnSkill_ID.Unique = true;
                 this.columnSkill_Name.AllowDBNull = false;
                 this.columnSkill_Name.MaxLength = 2147483647;
+                this.columnTeacher_ID.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2003,10 +2053,10 @@ namespace Project_3_and_4 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public Nov17_Skills_In_AssignmentsRow AddNov17_Skills_In_AssignmentsRow(string Skills_In_Assignments_ID, Nov17_AssignmentsRow parentNov17_AssignmentsRowByFK_Nov17_Skills_In_Assignments_Nov17_Assignments, Nov17_SkillsRow parentNov17_SkillsRowByFK_Nov17_Skills_In_Assignments_Nov17_Skills) {
+            public Nov17_Skills_In_AssignmentsRow AddNov17_Skills_In_AssignmentsRow(Nov17_AssignmentsRow parentNov17_AssignmentsRowByFK_Nov17_Skills_In_Assignments_Nov17_Assignments, Nov17_SkillsRow parentNov17_SkillsRowByFK_Nov17_Skills_In_Assignments_Nov17_Skills) {
                 Nov17_Skills_In_AssignmentsRow rowNov17_Skills_In_AssignmentsRow = ((Nov17_Skills_In_AssignmentsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Skills_In_Assignments_ID,
+                        null,
                         null,
                         null};
                 if ((parentNov17_AssignmentsRowByFK_Nov17_Skills_In_Assignments_Nov17_Assignments != null)) {
@@ -2022,7 +2072,7 @@ namespace Project_3_and_4 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public Nov17_Skills_In_AssignmentsRow FindBySkills_In_Assignments_ID(string Skills_In_Assignments_ID) {
+            public Nov17_Skills_In_AssignmentsRow FindBySkills_In_Assignments_ID(int Skills_In_Assignments_ID) {
                 return ((Nov17_Skills_In_AssignmentsRow)(this.Rows.Find(new object[] {
                             Skills_In_Assignments_ID})));
             }
@@ -2052,7 +2102,7 @@ namespace Project_3_and_4 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columnSkills_In_Assignments_ID = new global::System.Data.DataColumn("Skills_In_Assignments ID", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnSkills_In_Assignments_ID = new global::System.Data.DataColumn("Skills_In_Assignments ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSkills_In_Assignments_ID);
                 this.columnAssignment_ID = new global::System.Data.DataColumn("Assignment ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAssignment_ID);
@@ -2060,9 +2110,12 @@ namespace Project_3_and_4 {
                 base.Columns.Add(this.columnSkills_ID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnSkills_In_Assignments_ID}, true));
+                this.columnSkills_In_Assignments_ID.AutoIncrement = true;
+                this.columnSkills_In_Assignments_ID.AutoIncrementSeed = -1;
+                this.columnSkills_In_Assignments_ID.AutoIncrementStep = -1;
                 this.columnSkills_In_Assignments_ID.AllowDBNull = false;
+                this.columnSkills_In_Assignments_ID.ReadOnly = true;
                 this.columnSkills_In_Assignments_ID.Unique = true;
-                this.columnSkills_In_Assignments_ID.MaxLength = 10;
                 this.columnAssignment_ID.AllowDBNull = false;
                 this.columnSkills_ID.AllowDBNull = false;
             }
@@ -4432,12 +4485,34 @@ namespace Project_3_and_4 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int Teacher_ID {
+                get {
+                    return ((int)(this[this.tableNov17_Assignments.Teacher_IDColumn]));
+                }
+                set {
+                    this[this.tableNov17_Assignments.Teacher_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public Nov17_Assignment_TypesRow Nov17_Assignment_TypesRow {
                 get {
                     return ((Nov17_Assignment_TypesRow)(this.GetParentRow(this.Table.ParentRelations["FK_Nov17_Assignments_Nov17_Assignment_Types"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Nov17_Assignments_Nov17_Assignment_Types"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public Nov18_TeachersRow Nov18_TeachersRow {
+                get {
+                    return ((Nov18_TeachersRow)(this.GetParentRow(this.Table.ParentRelations["FK_Nov17_Assignments_Nov18_Teachers"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Nov17_Assignments_Nov18_Teachers"]);
                 }
             }
             
@@ -4550,6 +4625,28 @@ namespace Project_3_and_4 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int Teacher_ID {
+                get {
+                    return ((int)(this[this.tableNov17_Skills.Teacher_IDColumn]));
+                }
+                set {
+                    this[this.tableNov17_Skills.Teacher_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public Nov18_TeachersRow Nov18_TeachersRow {
+                get {
+                    return ((Nov18_TeachersRow)(this.GetParentRow(this.Table.ParentRelations["FK_Nov17_Skills_Nov18_Teachers"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Nov17_Skills_Nov18_Teachers"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public Nov17_Skills_In_AssignmentsRow[] GetNov17_Skills_In_AssignmentsRows() {
                 if ((this.Table.ChildRelations["FK_Nov17_Skills_In_Assignments_Nov17_Skills"] == null)) {
                     return new Nov17_Skills_In_AssignmentsRow[0];
@@ -4576,9 +4673,9 @@ namespace Project_3_and_4 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Skills_In_Assignments_ID {
+            public int Skills_In_Assignments_ID {
                 get {
-                    return ((string)(this[this.tableNov17_Skills_In_Assignments.Skills_In_Assignments_IDColumn]));
+                    return ((int)(this[this.tableNov17_Skills_In_Assignments.Skills_In_Assignments_IDColumn]));
                 }
                 set {
                     this[this.tableNov17_Skills_In_Assignments.Skills_In_Assignments_IDColumn] = value;
@@ -5127,6 +5224,28 @@ namespace Project_3_and_4 {
                 }
                 set {
                     this[this.tableNov18_Teachers.Teacher_Last_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public Nov17_AssignmentsRow[] GetNov17_AssignmentsRows() {
+                if ((this.Table.ChildRelations["FK_Nov17_Assignments_Nov18_Teachers"] == null)) {
+                    return new Nov17_AssignmentsRow[0];
+                }
+                else {
+                    return ((Nov17_AssignmentsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Nov17_Assignments_Nov18_Teachers"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public Nov17_SkillsRow[] GetNov17_SkillsRows() {
+                if ((this.Table.ChildRelations["FK_Nov17_Skills_Nov18_Teachers"] == null)) {
+                    return new Nov17_SkillsRow[0];
+                }
+                else {
+                    return ((Nov17_SkillsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Nov17_Skills_Nov18_Teachers"])));
                 }
             }
             
@@ -5724,18 +5843,11 @@ namespace Project_3_and_4._Project3_4DatabaseDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT [Assignment_Type ID], [Type Name] FROM dbo.Nov17_Assignment_Types";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "INSERT INTO [dbo].[Nov17_Assignment_Types] ([Type Name]) VALUES (@Type_Name);\r\nSE" +
-                "LECT [Assignment_Type ID], [Type Name] FROM Nov17_Assignment_Types WHERE ([Assig" +
-                "nment_Type ID] = SCOPE_IDENTITY())";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type_Name", global::System.Data.SqlDbType.Text, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Type Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5876,35 +5988,6 @@ namespace Project_3_and_4._Project3_4DatabaseDataSetTableAdapters {
         public virtual int Update(string Type_Name, int Original_Assignment_Type_ID) {
             return this.Update(Type_Name, Original_Assignment_Type_ID, Original_Assignment_Type_ID);
         }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertQuery(string Type_Name) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
-            if ((Type_Name == null)) {
-                throw new global::System.ArgumentNullException("Type_Name");
-            }
-            else {
-                command.Parameters[0].Value = ((string)(Type_Name));
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            return returnValue;
-        }
     }
     
     /// <summary>
@@ -6033,34 +6116,40 @@ namespace Project_3_and_4._Project3_4DatabaseDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Assignment Description", "Assignment Description");
             tableMapping.ColumnMappings.Add("Assignment Questions", "Assignment Questions");
             tableMapping.ColumnMappings.Add("Assignment_Type ID", "Assignment_Type ID");
+            tableMapping.ColumnMappings.Add("Teacher ID", "Teacher ID");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Nov17_Assignments] WHERE (([Assignment ID] = @Original_Assignm" +
-                "ent_ID) AND ([Assignment_Type ID] = @Original_Assignment_Type_ID))";
+                "ent_ID) AND ([Assignment_Type ID] = @Original_Assignment_Type_ID) AND ([Teacher " +
+                "ID] = @Original_Teacher_ID))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment_Type_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment_Type ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Teacher_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Teacher ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Nov17_Assignments] ([Assignment Title], [Assignment Description], [Assignment Questions], [Assignment_Type ID]) VALUES (@Assignment_Title, @Assignment_Description, @Assignment_Questions, @Assignment_Type_ID);
-SELECT [Assignment ID], [Assignment Title], [Assignment Description], [Assignment Questions], [Assignment_Type ID] FROM Nov17_Assignments WHERE ([Assignment ID] = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Nov17_Assignments] ([Assignment Title], [Assignment Description], [Assignment Questions], [Assignment_Type ID], [Teacher ID]) VALUES (@Assignment_Title, @Assignment_Description, @Assignment_Questions, @Assignment_Type_ID, @Teacher_ID);
+SELECT [Assignment ID], [Assignment Title], [Assignment Description], [Assignment Questions], [Assignment_Type ID], [Teacher ID] FROM Nov17_Assignments WHERE ([Assignment ID] = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment_Title", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment_Description", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment_Questions", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment Questions", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment_Type_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment_Type ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Teacher_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Teacher ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Nov17_Assignments] SET [Assignment Title] = @Assignment_Title, [Assignment Description] = @Assignment_Description, [Assignment Questions] = @Assignment_Questions, [Assignment_Type ID] = @Assignment_Type_ID WHERE (([Assignment ID] = @Original_Assignment_ID) AND ([Assignment_Type ID] = @Original_Assignment_Type_ID));
-SELECT [Assignment ID], [Assignment Title], [Assignment Description], [Assignment Questions], [Assignment_Type ID] FROM Nov17_Assignments WHERE ([Assignment ID] = @Assignment_ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Nov17_Assignments] SET [Assignment Title] = @Assignment_Title, [Assignment Description] = @Assignment_Description, [Assignment Questions] = @Assignment_Questions, [Assignment_Type ID] = @Assignment_Type_ID, [Teacher ID] = @Teacher_ID WHERE (([Assignment ID] = @Original_Assignment_ID) AND ([Assignment_Type ID] = @Original_Assignment_Type_ID) AND ([Teacher ID] = @Original_Teacher_ID));
+SELECT [Assignment ID], [Assignment Title], [Assignment Description], [Assignment Questions], [Assignment_Type ID], [Teacher ID] FROM Nov17_Assignments WHERE ([Assignment ID] = @Assignment_ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment_Title", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment_Description", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment_Questions", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment Questions", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment_Type_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment_Type ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Teacher_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Teacher ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment_Type_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment_Type ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Teacher_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Teacher ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -6078,17 +6167,18 @@ SELECT [Assignment ID], [Assignment Title], [Assignment Description], [Assignmen
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT [Assignment ID], [Assignment Title], [Assignment Description], [Assignment" +
-                " Questions], [Assignment_Type ID] FROM dbo.Nov17_Assignments";
+                " Questions], [Assignment_Type ID], [Teacher ID] FROM dbo.Nov17_Assignments";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"INSERT INTO [dbo].[Nov17_Assignments] ([Assignment Title], [Assignment Description], [Assignment Questions], [Assignment_Type ID]) VALUES (@Assignment_Title, @Assignment_Description, @Assignment_Questions, @Assignment_Type_ID);
-SELECT [Assignment ID], [Assignment Title], [Assignment Description], [Assignment Questions], [Assignment_Type ID] FROM Nov17_Assignments WHERE ([Assignment ID] = SCOPE_IDENTITY())";
+            this._commandCollection[1].CommandText = @"INSERT INTO [dbo].[Nov17_Assignments] ([Assignment Title], [Assignment Description], [Assignment Questions], [Assignment_Type ID], [Teacher ID]) VALUES (@Assignment_Title, @Assignment_Description, @Assignment_Questions, @Assignment_Type_ID, @Teacher_ID);
+SELECT [Assignment ID], [Assignment Title], [Assignment Description], [Assignment Questions], [Assignment_Type ID], [Teacher ID] FROM Nov17_Assignments WHERE ([Assignment ID] = SCOPE_IDENTITY())";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment_Title", global::System.Data.SqlDbType.Text, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment_Description", global::System.Data.SqlDbType.Text, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment_Questions", global::System.Data.SqlDbType.Text, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment Questions", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment_Type_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment_Type ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Teacher_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Teacher ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6148,9 +6238,10 @@ SELECT [Assignment ID], [Assignment Title], [Assignment Description], [Assignmen
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Assignment_ID, int Original_Assignment_Type_ID) {
+        public virtual int Delete(int Original_Assignment_ID, int Original_Assignment_Type_ID, int Original_Teacher_ID) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Assignment_ID));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Assignment_Type_ID));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Teacher_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6171,7 +6262,7 @@ SELECT [Assignment ID], [Assignment Title], [Assignment Description], [Assignmen
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Assignment_Title, string Assignment_Description, string Assignment_Questions, int Assignment_Type_ID) {
+        public virtual int Insert(string Assignment_Title, string Assignment_Description, string Assignment_Questions, int Assignment_Type_ID, int Teacher_ID) {
             if ((Assignment_Title == null)) {
                 throw new global::System.ArgumentNullException("Assignment_Title");
             }
@@ -6191,6 +6282,7 @@ SELECT [Assignment ID], [Assignment Title], [Assignment Description], [Assignmen
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Assignment_Questions));
             }
             this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Assignment_Type_ID));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(Teacher_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6211,7 +6303,7 @@ SELECT [Assignment ID], [Assignment Title], [Assignment Description], [Assignmen
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Assignment_Title, string Assignment_Description, string Assignment_Questions, int Assignment_Type_ID, int Original_Assignment_ID, int Original_Assignment_Type_ID, int Assignment_ID) {
+        public virtual int Update(string Assignment_Title, string Assignment_Description, string Assignment_Questions, int Assignment_Type_ID, int Teacher_ID, int Original_Assignment_ID, int Original_Assignment_Type_ID, int Original_Teacher_ID, int Assignment_ID) {
             if ((Assignment_Title == null)) {
                 throw new global::System.ArgumentNullException("Assignment_Title");
             }
@@ -6231,9 +6323,11 @@ SELECT [Assignment ID], [Assignment Title], [Assignment Description], [Assignmen
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Assignment_Questions));
             }
             this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Assignment_Type_ID));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Assignment_ID));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Assignment_Type_ID));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Assignment_ID));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Teacher_ID));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Assignment_ID));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Assignment_Type_ID));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_Teacher_ID));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Assignment_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6254,15 +6348,15 @@ SELECT [Assignment ID], [Assignment Title], [Assignment Description], [Assignmen
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Assignment_Title, string Assignment_Description, string Assignment_Questions, int Assignment_Type_ID, int Original_Assignment_ID, int Original_Assignment_Type_ID) {
-            return this.Update(Assignment_Title, Assignment_Description, Assignment_Questions, Assignment_Type_ID, Original_Assignment_ID, Original_Assignment_Type_ID, Original_Assignment_ID);
+        public virtual int Update(string Assignment_Title, string Assignment_Description, string Assignment_Questions, int Assignment_Type_ID, int Teacher_ID, int Original_Assignment_ID, int Original_Assignment_Type_ID, int Original_Teacher_ID) {
+            return this.Update(Assignment_Title, Assignment_Description, Assignment_Questions, Assignment_Type_ID, Teacher_ID, Original_Assignment_ID, Original_Assignment_Type_ID, Original_Teacher_ID, Original_Assignment_ID);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertQuery(string Assignment_Title, string Assignment_Description, string Assignment_Questions, int Assignment_Type_ID) {
+        public virtual int InsertQuery(string Assignment_Title, string Assignment_Description, string Assignment_Questions, int Assignment_Type_ID, int Teacher_ID) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
             if ((Assignment_Title == null)) {
                 throw new global::System.ArgumentNullException("Assignment_Title");
@@ -6283,6 +6377,7 @@ SELECT [Assignment ID], [Assignment Title], [Assignment Description], [Assignmen
                 command.Parameters[2].Value = ((string)(Assignment_Questions));
             }
             command.Parameters[3].Value = ((int)(Assignment_Type_ID));
+            command.Parameters[4].Value = ((int)(Teacher_ID));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6727,26 +6822,32 @@ SELECT [Assignment ID], [Assignment Title], [Assignment Description], [Assignmen
             tableMapping.DataSetTable = "Nov17_Skills";
             tableMapping.ColumnMappings.Add("Skill ID", "Skill ID");
             tableMapping.ColumnMappings.Add("Skill Name", "Skill Name");
+            tableMapping.ColumnMappings.Add("Teacher ID", "Teacher ID");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Nov17_Skills] WHERE (([Skill ID] = @Original_Skill_ID))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Nov17_Skills] WHERE (([Skill ID] = @Original_Skill_ID) AND ([T" +
+                "eacher ID] = @Original_Teacher_ID))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Skill_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Skill ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Teacher_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Teacher ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Nov17_Skills] ([Skill Name]) VALUES (@Skill_Name);\r\nSELECT [Sk" +
-                "ill ID], [Skill Name] FROM Nov17_Skills WHERE ([Skill ID] = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Nov17_Skills] ([Skill Name], [Teacher ID]) VALUES (@Skill_Name" +
+                ", @Teacher_ID);\r\nSELECT [Skill ID], [Skill Name], [Teacher ID] FROM Nov17_Skills" +
+                " WHERE ([Skill ID] = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Skill_Name", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Skill Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Teacher_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Teacher ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Nov17_Skills] SET [Skill Name] = @Skill_Name WHERE (([Skill ID] = @" +
-                "Original_Skill_ID));\r\nSELECT [Skill ID], [Skill Name] FROM Nov17_Skills WHERE ([" +
-                "Skill ID] = @Skill_ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Nov17_Skills] SET [Skill Name] = @Skill_Name, [Teacher ID] = @Teacher_ID WHERE (([Skill ID] = @Original_Skill_ID) AND ([Teacher ID] = @Original_Teacher_ID));
+SELECT [Skill ID], [Skill Name], [Teacher ID] FROM Nov17_Skills WHERE ([Skill ID] = @Skill_ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Skill_Name", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Skill Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Teacher_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Teacher ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Skill_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Skill ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Teacher_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Teacher ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Skill_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Skill ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -6763,7 +6864,7 @@ SELECT [Assignment ID], [Assignment Title], [Assignment Description], [Assignmen
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [Skill ID], [Skill Name] FROM dbo.Nov17_Skills";
+            this._commandCollection[0].CommandText = "SELECT [Skill ID], [Skill Name], [Teacher ID] FROM dbo.Nov17_Skills";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6824,8 +6925,9 @@ SELECT [Assignment ID], [Assignment Title], [Assignment Description], [Assignmen
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Skill_ID) {
+        public virtual int Delete(int Original_Skill_ID, int Original_Teacher_ID) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Skill_ID));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Teacher_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6846,13 +6948,14 @@ SELECT [Assignment ID], [Assignment Title], [Assignment Description], [Assignmen
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Skill_Name) {
+        public virtual int Insert(string Skill_Name, int Teacher_ID) {
             if ((Skill_Name == null)) {
                 throw new global::System.ArgumentNullException("Skill_Name");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Skill_Name));
             }
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Teacher_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6873,15 +6976,17 @@ SELECT [Assignment ID], [Assignment Title], [Assignment Description], [Assignmen
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Skill_Name, int Original_Skill_ID, int Skill_ID) {
+        public virtual int Update(string Skill_Name, int Teacher_ID, int Original_Skill_ID, int Original_Teacher_ID, int Skill_ID) {
             if ((Skill_Name == null)) {
                 throw new global::System.ArgumentNullException("Skill_Name");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Skill_Name));
             }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Original_Skill_ID));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Skill_ID));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Teacher_ID));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_Skill_ID));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_Teacher_ID));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Skill_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6902,8 +7007,8 @@ SELECT [Assignment ID], [Assignment Title], [Assignment Description], [Assignmen
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Skill_Name, int Original_Skill_ID) {
-            return this.Update(Skill_Name, Original_Skill_ID, Original_Skill_ID);
+        public virtual int Update(string Skill_Name, int Teacher_ID, int Original_Skill_ID, int Original_Teacher_ID) {
+            return this.Update(Skill_Name, Teacher_ID, Original_Skill_ID, Original_Teacher_ID, Original_Skill_ID);
         }
     }
     
@@ -7038,28 +7143,27 @@ SELECT [Assignment ID], [Assignment Title], [Assignment Description], [Assignmen
                 "] = @Original_Skills_In_Assignments_ID) AND ([Assignment ID] = @Original_Assignm" +
                 "ent_ID) AND ([Skills ID] = @Original_Skills_ID))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Skills_In_Assignments_ID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Skills_In_Assignments ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Skills_In_Assignments_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Skills_In_Assignments ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Skills_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Skills ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Nov17_Skills_In_Assignments] ([Skills_In_Assignments ID], [Assignment ID], [Skills ID]) VALUES (@Skills_In_Assignments_ID, @Assignment_ID, @Skills_ID);
-SELECT [Skills_In_Assignments ID], [Assignment ID], [Skills ID] FROM Nov17_Skills_In_Assignments WHERE ([Skills_In_Assignments ID] = @Skills_In_Assignments_ID)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Nov17_Skills_In_Assignments] ([Assignment ID], [Skills ID]) VALUES (@Assignment_ID, @Skills_ID);
+SELECT [Skills_In_Assignments ID], [Assignment ID], [Skills ID] FROM Nov17_Skills_In_Assignments WHERE ([Skills_In_Assignments ID] = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Skills_In_Assignments_ID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Skills_In_Assignments ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Skills_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Skills ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Nov17_Skills_In_Assignments] SET [Skills_In_Assignments ID] = @Skills_In_Assignments_ID, [Assignment ID] = @Assignment_ID, [Skills ID] = @Skills_ID WHERE (([Skills_In_Assignments ID] = @Original_Skills_In_Assignments_ID) AND ([Assignment ID] = @Original_Assignment_ID) AND ([Skills ID] = @Original_Skills_ID));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Nov17_Skills_In_Assignments] SET [Assignment ID] = @Assignment_ID, [Skills ID] = @Skills_ID WHERE (([Skills_In_Assignments ID] = @Original_Skills_In_Assignments_ID) AND ([Assignment ID] = @Original_Assignment_ID) AND ([Skills ID] = @Original_Skills_ID));
 SELECT [Skills_In_Assignments ID], [Assignment ID], [Skills ID] FROM Nov17_Skills_In_Assignments WHERE ([Skills_In_Assignments ID] = @Skills_In_Assignments_ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Skills_In_Assignments_ID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Skills_In_Assignments ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Skills_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Skills ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Skills_In_Assignments_ID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Skills_In_Assignments ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Skills_In_Assignments_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Skills_In_Assignments ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Skills_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Skills ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Skills_In_Assignments_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Skills_In_Assignments ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7072,12 +7176,19 @@ SELECT [Skills_In_Assignments ID], [Assignment ID], [Skills ID] FROM Nov17_Skill
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT [Skills_In_Assignments ID], [Assignment ID], [Skills ID] FROM dbo.Nov17_Sk" +
                 "ills_In_Assignments";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"INSERT INTO [dbo].[Nov17_Skills_In_Assignments] ([Assignment ID], [Skills ID]) VALUES (@Assignment_ID, @Skills_ID);
+SELECT [Skills_In_Assignments ID], [Assignment ID], [Skills ID] FROM Nov17_Skills_In_Assignments WHERE ([Skills_In_Assignments ID] = SCOPE_IDENTITY())";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Skills_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Skills ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7137,13 +7248,8 @@ SELECT [Skills_In_Assignments ID], [Assignment ID], [Skills ID] FROM Nov17_Skill
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Skills_In_Assignments_ID, int Original_Assignment_ID, int Original_Skills_ID) {
-            if ((Original_Skills_In_Assignments_ID == null)) {
-                throw new global::System.ArgumentNullException("Original_Skills_In_Assignments_ID");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_Skills_In_Assignments_ID));
-            }
+        public virtual int Delete(int Original_Skills_In_Assignments_ID, int Original_Assignment_ID, int Original_Skills_ID) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Skills_In_Assignments_ID));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Assignment_ID));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Skills_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
@@ -7166,15 +7272,9 @@ SELECT [Skills_In_Assignments ID], [Assignment ID], [Skills ID] FROM Nov17_Skill
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Skills_In_Assignments_ID, int Assignment_ID, int Skills_ID) {
-            if ((Skills_In_Assignments_ID == null)) {
-                throw new global::System.ArgumentNullException("Skills_In_Assignments_ID");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Skills_In_Assignments_ID));
-            }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Assignment_ID));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Skills_ID));
+        public virtual int Insert(int Assignment_ID, int Skills_ID) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Assignment_ID));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Skills_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7195,23 +7295,13 @@ SELECT [Skills_In_Assignments ID], [Assignment ID], [Skills ID] FROM Nov17_Skill
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Skills_In_Assignments_ID, int Assignment_ID, int Skills_ID, string Original_Skills_In_Assignments_ID, int Original_Assignment_ID, int Original_Skills_ID) {
-            if ((Skills_In_Assignments_ID == null)) {
-                throw new global::System.ArgumentNullException("Skills_In_Assignments_ID");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Skills_In_Assignments_ID));
-            }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Assignment_ID));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Skills_ID));
-            if ((Original_Skills_In_Assignments_ID == null)) {
-                throw new global::System.ArgumentNullException("Original_Skills_In_Assignments_ID");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_Skills_In_Assignments_ID));
-            }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Assignment_ID));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Skills_ID));
+        public virtual int Update(int Assignment_ID, int Skills_ID, int Original_Skills_In_Assignments_ID, int Original_Assignment_ID, int Original_Skills_ID, int Skills_In_Assignments_ID) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Assignment_ID));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Skills_ID));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_Skills_In_Assignments_ID));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_Assignment_ID));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Skills_ID));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Skills_In_Assignments_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7232,8 +7322,33 @@ SELECT [Skills_In_Assignments ID], [Assignment ID], [Skills ID] FROM Nov17_Skill
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Assignment_ID, int Skills_ID, string Original_Skills_In_Assignments_ID, int Original_Assignment_ID, int Original_Skills_ID) {
-            return this.Update(Original_Skills_In_Assignments_ID, Assignment_ID, Skills_ID, Original_Skills_In_Assignments_ID, Original_Assignment_ID, Original_Skills_ID);
+        public virtual int Update(int Assignment_ID, int Skills_ID, int Original_Skills_In_Assignments_ID, int Original_Assignment_ID, int Original_Skills_ID) {
+            return this.Update(Assignment_ID, Skills_ID, Original_Skills_In_Assignments_ID, Original_Assignment_ID, Original_Skills_ID, Original_Skills_In_Assignments_ID);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertQuery(int Assignment_ID, int Skills_ID) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            command.Parameters[0].Value = ((int)(Assignment_ID));
+            command.Parameters[1].Value = ((int)(Skills_ID));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
@@ -7673,21 +7788,21 @@ SELECT [Student_Group ID], [Student ID], [Group ID] FROM Nov17_Student_Groups WH
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Nov17_Students] WHERE (([Student ID] = @Original_Student_ID))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Nov17_Students] WHERE (([Student ID] = @Original_Student_ID))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Student_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Student ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [Nov17_Students] ([Student First Name], [Student Last Name]) VALUES (" +
-                "@Student_First_Name, @Student_Last_Name);\r\nSELECT [Student ID], [Student First N" +
-                "ame], [Student Last Name] FROM Nov17_Students WHERE ([Student ID] = SCOPE_IDENTI" +
-                "TY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Nov17_Students] ([Student First Name], [Student Last Name]) VA" +
+                "LUES (@Student_First_Name, @Student_Last_Name);\r\nSELECT [Student ID], [Student F" +
+                "irst Name], [Student Last Name] FROM Nov17_Students WHERE ([Student ID] = SCOPE_" +
+                "IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Student_First_Name", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Student First Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Student_Last_Name", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Student Last Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Nov17_Students] SET [Student First Name] = @Student_First_Name, [Student Last Name] = @Student_Last_Name WHERE (([Student ID] = @Original_Student_ID));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Nov17_Students] SET [Student First Name] = @Student_First_Name, [Student Last Name] = @Student_Last_Name WHERE (([Student ID] = @Original_Student_ID));
 SELECT [Student ID], [Student First Name], [Student Last Name] FROM Nov17_Students WHERE ([Student ID] = @Student_ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Student_First_Name", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Student First Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7706,19 +7821,12 @@ SELECT [Student ID], [Student First Name], [Student Last Name] FROM Nov17_Studen
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [Student ID], [Student First Name], [Student Last Name] FROM Nov17_Student" +
-                "s";
+            this._commandCollection[0].CommandText = "SELECT [Student ID], [Student First Name], [Student Last Name] FROM dbo.Nov17_Stu" +
+                "dents";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "INSERT INTO [dbo].[Nov17_Students] ([Student Name]) VALUES (@Student_Name);\r\nSELE" +
-                "CT [Student ID], [Student Name] FROM Nov17_Students WHERE ([Student ID] = SCOPE_" +
-                "IDENTITY())";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Student_Name", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "Student Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7870,35 +7978,6 @@ SELECT [Student ID], [Student First Name], [Student Last Name] FROM Nov17_Studen
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string Student_First_Name, string Student_Last_Name, int Original_Student_ID) {
             return this.Update(Student_First_Name, Student_Last_Name, Original_Student_ID, Original_Student_ID);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertQuery(object Student_Name) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
-            if ((Student_Name == null)) {
-                throw new global::System.ArgumentNullException("Student_Name");
-            }
-            else {
-                command.Parameters[0].Value = ((object)(Student_Name));
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            return returnValue;
         }
     }
     
@@ -8071,20 +8150,12 @@ SELECT [Assignment_Grade ID], [Student ID], [Assignment ID], Grade FROM Nov18_As
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT [Assignment_Grade ID], [Student ID], [Assignment ID], Grade FROM dbo.Nov18" +
                 "_Assignment_Grade";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"INSERT INTO [dbo].[Nov18_Assignment_Grade] ([Student ID], [Assignment ID], [Grade]) VALUES (@Student_ID, @Assignment_ID, @Grade);
-SELECT [Assignment_Grade ID], [Student ID], [Assignment ID], Grade FROM Nov18_Assignment_Grade WHERE ([Assignment_Grade ID] = SCOPE_IDENTITY())";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Student_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Student ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Grade", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Grade", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8224,32 +8295,6 @@ SELECT [Assignment_Grade ID], [Student ID], [Assignment ID], Grade FROM Nov18_As
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(int Student_ID, int Assignment_ID, double Grade, int Original_Assignment_Grade_ID, int Original_Student_ID, int Original_Assignment_ID, double Original_Grade) {
             return this.Update(Student_ID, Assignment_ID, Grade, Original_Assignment_Grade_ID, Original_Student_ID, Original_Assignment_ID, Original_Grade, Original_Assignment_Grade_ID);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertQuery(int Student_ID, int Assignment_ID, double Grade) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
-            command.Parameters[0].Value = ((int)(Student_ID));
-            command.Parameters[1].Value = ((int)(Assignment_ID));
-            command.Parameters[2].Value = ((double)(Grade));
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            return returnValue;
         }
     }
     
@@ -9897,6 +9942,15 @@ SELECT [Teacher ID], [Teacher First Name], [Teacher Last Name] FROM Nov18_Teache
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._nov18_TeachersTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Nov18_Teachers.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._nov18_TeachersTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._nov17_AssignmentsTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Nov17_Assignments.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -9930,15 +9984,6 @@ SELECT [Teacher ID], [Teacher First Name], [Teacher Last Name] FROM Nov18_Teache
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._nov17_StudentsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._nov18_TeachersTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Nov18_Teachers.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._nov18_TeachersTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -10014,6 +10059,14 @@ SELECT [Teacher ID], [Teacher First Name], [Teacher Last Name] FROM Nov18_Teache
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._nov18_TeachersTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Nov18_Teachers.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._nov18_TeachersTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._nov17_AssignmentsTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Nov17_Assignments.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -10043,14 +10096,6 @@ SELECT [Teacher ID], [Teacher First Name], [Teacher Last Name] FROM Nov18_Teache
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._nov17_StudentsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._nov18_TeachersTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Nov18_Teachers.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._nov18_TeachersTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -10160,14 +10205,6 @@ SELECT [Teacher ID], [Teacher First Name], [Teacher Last Name] FROM Nov18_Teache
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._nov18_TeachersTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Nov18_Teachers.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._nov18_TeachersTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._nov17_StudentsTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Nov17_Students.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -10197,6 +10234,14 @@ SELECT [Teacher ID], [Teacher First Name], [Teacher Last Name] FROM Nov18_Teache
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._nov17_AssignmentsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._nov18_TeachersTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Nov18_Teachers.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._nov18_TeachersTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
