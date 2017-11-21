@@ -55,7 +55,7 @@
             // 
             // Create_Button
             // 
-            this.Create_Button.Location = new System.Drawing.Point(293, 384);
+            this.Create_Button.Location = new System.Drawing.Point(461, 329);
             this.Create_Button.Name = "Create_Button";
             this.Create_Button.Size = new System.Drawing.Size(75, 23);
             this.Create_Button.TabIndex = 0;
@@ -111,7 +111,7 @@
             // Question_file_name_label
             // 
             this.Question_file_name_label.AutoSize = true;
-            this.Question_file_name_label.Location = new System.Drawing.Point(145, 339);
+            this.Question_file_name_label.Location = new System.Drawing.Point(206, 329);
             this.Question_file_name_label.Name = "Question_file_name_label";
             this.Question_file_name_label.Size = new System.Drawing.Size(62, 13);
             this.Question_file_name_label.TabIndex = 6;
@@ -177,36 +177,37 @@
             this.Skills_checkbox_list.FormattingEnabled = true;
             this.Skills_checkbox_list.Location = new System.Drawing.Point(65, 104);
             this.Skills_checkbox_list.Name = "Skills_checkbox_list";
-            this.Skills_checkbox_list.Size = new System.Drawing.Size(120, 94);
+            this.Skills_checkbox_list.Size = new System.Drawing.Size(303, 94);
             this.Skills_checkbox_list.TabIndex = 12;
             // 
             // Skills_add_skill_text
             // 
-            this.Skills_add_skill_text.Location = new System.Drawing.Point(206, 104);
+            this.Skills_add_skill_text.Location = new System.Drawing.Point(374, 104);
             this.Skills_add_skill_text.Name = "Skills_add_skill_text";
             this.Skills_add_skill_text.Size = new System.Drawing.Size(162, 20);
             this.Skills_add_skill_text.TabIndex = 13;
             // 
             // add_skill_button
             // 
-            this.add_skill_button.Location = new System.Drawing.Point(206, 140);
+            this.add_skill_button.Location = new System.Drawing.Point(374, 140);
             this.add_skill_button.Name = "add_skill_button";
             this.add_skill_button.Size = new System.Drawing.Size(75, 23);
             this.add_skill_button.TabIndex = 14;
             this.add_skill_button.Text = "Add skill";
             this.add_skill_button.UseVisualStyleBackColor = true;
+            this.add_skill_button.Click += new System.EventHandler(this.add_skill_button_Click);
             // 
             // Description_TextBox
             // 
             this.Description_TextBox.Location = new System.Drawing.Point(65, 215);
             this.Description_TextBox.Name = "Description_TextBox";
-            this.Description_TextBox.Size = new System.Drawing.Size(303, 96);
+            this.Description_TextBox.Size = new System.Drawing.Size(471, 96);
             this.Description_TextBox.TabIndex = 15;
             this.Description_TextBox.Text = "";
             // 
             // Import_Question_Bank
             // 
-            this.Import_Question_Bank.Location = new System.Drawing.Point(6, 334);
+            this.Import_Question_Bank.Location = new System.Drawing.Point(65, 324);
             this.Import_Question_Bank.Name = "Import_Question_Bank";
             this.Import_Question_Bank.Size = new System.Drawing.Size(133, 23);
             this.Import_Question_Bank.TabIndex = 16;
@@ -223,12 +224,13 @@
             // 
             // remove_skill_button
             // 
-            this.remove_skill_button.Location = new System.Drawing.Point(293, 140);
+            this.remove_skill_button.Location = new System.Drawing.Point(461, 140);
             this.remove_skill_button.Name = "remove_skill_button";
             this.remove_skill_button.Size = new System.Drawing.Size(75, 23);
             this.remove_skill_button.TabIndex = 18;
             this.remove_skill_button.Text = "Remove skill";
             this.remove_skill_button.UseVisualStyleBackColor = true;
+            this.remove_skill_button.Click += new System.EventHandler(this.remove_skill_button_Click);
             // 
             // openQuestionFileDialog
             // 
@@ -238,14 +240,15 @@
             // Error_Label
             // 
             this.Error_Label.AutoSize = true;
-            this.Error_Label.Location = new System.Drawing.Point(3, 360);
+            this.Error_Label.Location = new System.Drawing.Point(64, 350);
             this.Error_Label.Name = "Error_Label";
-            this.Error_Label.Size = new System.Drawing.Size(0, 13);
+            this.Error_Label.Size = new System.Drawing.Size(73, 13);
             this.Error_Label.TabIndex = 19;
+            this.Error_Label.Text = "validationText";
             // 
             // Information_Button
             // 
-            this.Information_Button.Location = new System.Drawing.Point(213, 334);
+            this.Information_Button.Location = new System.Drawing.Point(344, 323);
             this.Information_Button.Name = "Information_Button";
             this.Information_Button.Size = new System.Drawing.Size(24, 24);
             this.Information_Button.TabIndex = 20;
@@ -257,7 +260,7 @@
             // 
             this.Information_Label.AutoSize = true;
             this.Information_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Information_Label.Location = new System.Drawing.Point(244, 334);
+            this.Information_Label.Location = new System.Drawing.Point(382, 324);
             this.Information_Label.Name = "Information_Label";
             this.Information_Label.Size = new System.Drawing.Size(0, 13);
             this.Information_Label.TabIndex = 21;
@@ -289,7 +292,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Create_Button);
             this.Name = "Teacher_Create_Assignment";
-            this.Size = new System.Drawing.Size(380, 410);
+            this.Size = new System.Drawing.Size(934, 380);
             this.Load += new System.EventHandler(this.Teacher_Create_Assignment_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

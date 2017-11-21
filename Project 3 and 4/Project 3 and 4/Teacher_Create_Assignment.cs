@@ -27,8 +27,8 @@ namespace Project_3_and_4
         private void Teacher_Create_Assignment_Load(object sender, EventArgs e)
         {
             //System.Diagnostics.Debug.WriteLine("test");
-            skills_List = read_skills_from_file("list_of_skills.txt");
             display_Information = false;
+            refreshSkillsList();
         }
 
         private void Create_Button_Click(object sender, EventArgs e)
@@ -307,6 +307,91 @@ namespace Project_3_and_4
             else {
                 Information_Label.Text = "Please choose a .txt file that has the questions and answers stored like such:\nquestion1; 1correctAnswer; 1wrongAnswer1; 1wrongAnswer2; 1wrongAnswer3\nquestion2; 2correctAnswer; 2wrongAnswer1; 2wrongAnswer2; 2wrongAnswer3";
                 display_Information = true;
+            }
+        }
+
+        private void add_skill_button_Click(object sender, EventArgs e)
+        {
+            const int teacherID = 1; // TODO: Change this with real teacherID
+            if (Skills_add_skill_text.Text == "") return;
+            Skills_add_skill_text.Text = Skills_add_skill_text.Text.ToUpper();
+            _Project3_4DatabaseDataSetTableAdapters.Nov17_SkillsTableAdapter skillsTableAdapter;
+            skillsTableAdapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_SkillsTableAdapter();
+            DataTable skillsTable = skillsTableAdapter.GetData();
+            int dup = 0;
+            for (int i = 0; i < skillsTable.Rows.Count; i++)
+            {
+                if (Convert.ToInt32(skillsTable.Rows[i][2]) == teacherID)
+                {
+                    String skillName = Convert.ToString(skillsTable.Rows[i][1]);
+                    if (skillName == Skills_add_skill_text.Text) {
+                        dup = 1;
+                        break;
+                    }
+                }
+            }
+            if (dup == 0) {
+                skillsTableAdapter.InsertQuery(Skills_add_skill_text.Text, teacherID);
+            } else {
+                Error_Label.Text = "Duplicated skill.";
+            }
+            Skills_add_skill_text.Text = "";
+            refreshSkillsList();
+        }
+
+        private void remove_skill_button_Click(object sender, EventArgs e)
+        {
+            const int teacherID = 1; // TODO: Change this with real teacherID
+            if (Skills_add_skill_text.Text == "") return;
+            Skills_add_skill_text.Text = Skills_add_skill_text.Text.ToUpper();
+            _Project3_4DatabaseDataSetTableAdapters.Nov17_SkillsTableAdapter skillsTableAdapter;
+            skillsTableAdapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_SkillsTableAdapter();
+            DataTable skillsTable = skillsTableAdapter.GetData();
+            for (int i = 0; i < skillsTable.Rows.Count; i++)
+            {
+                if (Convert.ToInt32(skillsTable.Rows[i][2]) == teacherID)
+                {
+                    int skillID = Convert.ToInt32(skillsTable.Rows[i][0]);
+                    String skillName = Convert.ToString(skillsTable.Rows[i][1]);
+                    if (skillName == Skills_add_skill_text.Text) {
+                        // check if skill is associated with any assignment.
+                        _Project3_4DatabaseDataSetTableAdapters.Nov17_Skills_In_AssignmentsTableAdapter skills_In_Assignments_Adapter;
+                        skills_In_Assignments_Adapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_Skills_In_AssignmentsTableAdapter();
+                        DataTable skillsInAssignmentsTable = skills_In_Assignments_Adapter.GetData();
+                        int removeOk = 1;
+                        for (int j = 0; j < skillsInAssignmentsTable.Rows.Count; j++){
+                            if (Convert.ToInt32(skillsInAssignmentsTable.Rows[j][2]) == skillID) {
+                                Error_Label.Text = "Cannot remove this skill. Please remove the assignment has this skill first.";
+                                removeOk = 0;
+                                break;
+                            }
+                        }
+                        if (removeOk == 1) {
+                            // remove skill
+                            skillsTableAdapter.DeleteQuery(skillID, teacherID);
+                        }
+                    }
+                }
+            }
+            Skills_add_skill_text.Text = "";
+            refreshSkillsList();
+        }
+
+        private void refreshSkillsList()
+        {
+            const int teacherID = 1; // TODO: Change this with real teacherID
+            _Project3_4DatabaseDataSetTableAdapters.Nov17_SkillsTableAdapter skillsTableAdapter;
+            skillsTableAdapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_SkillsTableAdapter();
+            DataTable skillsTable = skillsTableAdapter.GetData();
+
+            Skills_checkbox_list.Items.Clear();
+            for (int i = 0; i < skillsTable.Rows.Count; i++)
+            {
+                if (Convert.ToInt32(skillsTable.Rows[i][2]) == teacherID)
+                {
+                    String skillName = Convert.ToString(skillsTable.Rows[i][1]);
+                    Skills_checkbox_list.Items.Add(skillName);
+                }
             }
         }
     }
