@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Project_3_and_4.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Project_3_and_4_Tests.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="Project3_4DatabaseConnectionString" Type="(Connection string)" Scope="Application">

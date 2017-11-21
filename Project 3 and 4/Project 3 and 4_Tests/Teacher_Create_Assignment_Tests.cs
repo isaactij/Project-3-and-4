@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Project_3_and_4;
 using System.IO;
+using System.Data;
 
 namespace Project_3_and_4_Tests
 {
@@ -110,6 +111,11 @@ namespace Project_3_and_4_Tests
             //Clears Test_list_Of_Assignments_File of all text
             writer = new StreamWriter("Test_list_Of_Assignments_File.txt");
             writer.Close();
+        }
+
+        [TestMethod]
+        public void Fill_Columns_Tests() {
+            //Report_Assignments.Fill_Columns();
         }
     }
 }

@@ -43,16 +43,19 @@
             this.Skills_checkbox_list = new System.Windows.Forms.CheckedListBox();
             this.Skills_add_skill_text = new System.Windows.Forms.TextBox();
             this.add_skill_button = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.Description_TextBox = new System.Windows.Forms.RichTextBox();
             this.Import_Question_Bank = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Assignment_Title_TextBox = new System.Windows.Forms.TextBox();
             this.remove_skill_button = new System.Windows.Forms.Button();
             this.openQuestionFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.Error_Label = new System.Windows.Forms.Label();
+            this.Information_Button = new System.Windows.Forms.Button();
+            this.Information_Label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Create_Button
             // 
-            this.Create_Button.Location = new System.Drawing.Point(293, 384);
+            this.Create_Button.Location = new System.Drawing.Point(461, 329);
             this.Create_Button.Name = "Create_Button";
             this.Create_Button.Size = new System.Drawing.Size(75, 23);
             this.Create_Button.TabIndex = 0;
@@ -108,7 +111,7 @@
             // Question_file_name_label
             // 
             this.Question_file_name_label.AutoSize = true;
-            this.Question_file_name_label.Location = new System.Drawing.Point(145, 339);
+            this.Question_file_name_label.Location = new System.Drawing.Point(206, 329);
             this.Question_file_name_label.Name = "Question_file_name_label";
             this.Question_file_name_label.Size = new System.Drawing.Size(62, 13);
             this.Question_file_name_label.TabIndex = 6;
@@ -174,36 +177,37 @@
             this.Skills_checkbox_list.FormattingEnabled = true;
             this.Skills_checkbox_list.Location = new System.Drawing.Point(65, 104);
             this.Skills_checkbox_list.Name = "Skills_checkbox_list";
-            this.Skills_checkbox_list.Size = new System.Drawing.Size(120, 94);
+            this.Skills_checkbox_list.Size = new System.Drawing.Size(303, 94);
             this.Skills_checkbox_list.TabIndex = 12;
             // 
             // Skills_add_skill_text
             // 
-            this.Skills_add_skill_text.Location = new System.Drawing.Point(206, 104);
+            this.Skills_add_skill_text.Location = new System.Drawing.Point(374, 104);
             this.Skills_add_skill_text.Name = "Skills_add_skill_text";
             this.Skills_add_skill_text.Size = new System.Drawing.Size(162, 20);
             this.Skills_add_skill_text.TabIndex = 13;
             // 
             // add_skill_button
             // 
-            this.add_skill_button.Location = new System.Drawing.Point(206, 140);
+            this.add_skill_button.Location = new System.Drawing.Point(374, 140);
             this.add_skill_button.Name = "add_skill_button";
             this.add_skill_button.Size = new System.Drawing.Size(75, 23);
             this.add_skill_button.TabIndex = 14;
             this.add_skill_button.Text = "Add skill";
             this.add_skill_button.UseVisualStyleBackColor = true;
+            this.add_skill_button.Click += new System.EventHandler(this.add_skill_button_Click);
             // 
-            // richTextBox1
+            // Description_TextBox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(65, 215);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(303, 96);
-            this.richTextBox1.TabIndex = 15;
-            this.richTextBox1.Text = "";
+            this.Description_TextBox.Location = new System.Drawing.Point(65, 215);
+            this.Description_TextBox.Name = "Description_TextBox";
+            this.Description_TextBox.Size = new System.Drawing.Size(471, 96);
+            this.Description_TextBox.TabIndex = 15;
+            this.Description_TextBox.Text = "";
             // 
             // Import_Question_Bank
             // 
-            this.Import_Question_Bank.Location = new System.Drawing.Point(6, 334);
+            this.Import_Question_Bank.Location = new System.Drawing.Point(65, 324);
             this.Import_Question_Bank.Name = "Import_Question_Bank";
             this.Import_Question_Bank.Size = new System.Drawing.Size(133, 23);
             this.Import_Question_Bank.TabIndex = 16;
@@ -211,35 +215,67 @@
             this.Import_Question_Bank.UseVisualStyleBackColor = true;
             this.Import_Question_Bank.Click += new System.EventHandler(this.Import_Question_Bank_Click);
             // 
-            // textBox2
+            // Assignment_Title_TextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(65, 34);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 17;
+            this.Assignment_Title_TextBox.Location = new System.Drawing.Point(65, 34);
+            this.Assignment_Title_TextBox.Name = "Assignment_Title_TextBox";
+            this.Assignment_Title_TextBox.Size = new System.Drawing.Size(100, 20);
+            this.Assignment_Title_TextBox.TabIndex = 17;
             // 
             // remove_skill_button
             // 
-            this.remove_skill_button.Location = new System.Drawing.Point(293, 140);
+            this.remove_skill_button.Location = new System.Drawing.Point(461, 140);
             this.remove_skill_button.Name = "remove_skill_button";
             this.remove_skill_button.Size = new System.Drawing.Size(75, 23);
             this.remove_skill_button.TabIndex = 18;
             this.remove_skill_button.Text = "Remove skill";
             this.remove_skill_button.UseVisualStyleBackColor = true;
+            this.remove_skill_button.Click += new System.EventHandler(this.remove_skill_button_Click);
             // 
             // openQuestionFileDialog
             // 
             this.openQuestionFileDialog.FileName = "openQuestionFileDialog";
             this.openQuestionFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openQuestionFileDialog_FileOk);
             // 
+            // Error_Label
+            // 
+            this.Error_Label.AutoSize = true;
+            this.Error_Label.Location = new System.Drawing.Point(64, 350);
+            this.Error_Label.Name = "Error_Label";
+            this.Error_Label.Size = new System.Drawing.Size(73, 13);
+            this.Error_Label.TabIndex = 19;
+            this.Error_Label.Text = "validationText";
+            // 
+            // Information_Button
+            // 
+            this.Information_Button.Location = new System.Drawing.Point(344, 323);
+            this.Information_Button.Name = "Information_Button";
+            this.Information_Button.Size = new System.Drawing.Size(24, 24);
+            this.Information_Button.TabIndex = 20;
+            this.Information_Button.Text = "?";
+            this.Information_Button.UseVisualStyleBackColor = true;
+            this.Information_Button.Click += new System.EventHandler(this.Information_Button_Click);
+            // 
+            // Information_Label
+            // 
+            this.Information_Label.AutoSize = true;
+            this.Information_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Information_Label.Location = new System.Drawing.Point(382, 324);
+            this.Information_Label.Name = "Information_Label";
+            this.Information_Label.Size = new System.Drawing.Size(0, 13);
+            this.Information_Label.TabIndex = 21;
+            // 
             // Teacher_Create_Assignment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.Information_Label);
+            this.Controls.Add(this.Information_Button);
+            this.Controls.Add(this.Error_Label);
             this.Controls.Add(this.remove_skill_button);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.Assignment_Title_TextBox);
             this.Controls.Add(this.Import_Question_Bank);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.Description_TextBox);
             this.Controls.Add(this.add_skill_button);
             this.Controls.Add(this.Skills_add_skill_text);
             this.Controls.Add(this.Skills_checkbox_list);
@@ -256,7 +292,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Create_Button);
             this.Name = "Teacher_Create_Assignment";
-            this.Size = new System.Drawing.Size(380, 410);
+            this.Size = new System.Drawing.Size(934, 380);
             this.Load += new System.EventHandler(this.Teacher_Create_Assignment_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -280,10 +316,13 @@
         private System.Windows.Forms.CheckedListBox Skills_checkbox_list;
         private System.Windows.Forms.TextBox Skills_add_skill_text;
         private System.Windows.Forms.Button add_skill_button;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox Description_TextBox;
         private System.Windows.Forms.Button Import_Question_Bank;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Assignment_Title_TextBox;
         private System.Windows.Forms.Button remove_skill_button;
         private System.Windows.Forms.OpenFileDialog openQuestionFileDialog;
+        private System.Windows.Forms.Label Error_Label;
+        private System.Windows.Forms.Button Information_Button;
+        private System.Windows.Forms.Label Information_Label;
     }
 }

@@ -53,11 +53,31 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report_Assignments.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report_Assignments.Designer.cs">
+      <DependentUpon>Report_Assignments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report_Skills.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report_Skills.Designer.cs">
+      <DependentUpon>Report_Skills.cs</DependentUpon>
+    </Compile>
     <Compile Include="Teacher_Create_Assignment.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Teacher_Create_Assignment.Designer.cs">
       <DependentUpon>Teacher_Create_Assignment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_Project3_4DatabaseDataSet.cs">
+      <DependentUpon>_Project3_4DatabaseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_Project3_4DatabaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Project3_4DatabaseDataSet.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -71,6 +91,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Report_Assignments.resx">
+      <DependentUpon>Report_Assignments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_Skills.resx">
+      <DependentUpon>Report_Skills.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Teacher_Create_Assignment.resx">
       <DependentUpon>Teacher_Create_Assignment.cs</DependentUpon>
     </EmbeddedResource>
@@ -83,6 +109,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="_Project3_4DatabaseDataSet.xsc">
+      <DependentUpon>_Project3_4DatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_Project3_4DatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_Project3_4DatabaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_Project3_4DatabaseDataSet.xss">
+      <DependentUpon>_Project3_4DatabaseDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
