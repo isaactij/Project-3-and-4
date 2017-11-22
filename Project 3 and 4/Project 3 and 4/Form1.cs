@@ -29,7 +29,22 @@ namespace Project_3_and_4
 
         private void Create_Click(object sender, EventArgs e)
         {
+            panel1.Controls.Clear();
             var myControl = new Teacher_Create_Assignment();
+            panel1.Controls.Add(myControl);
+        }
+
+        private void Assignments_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            var myControl = new Report_Assignments();
+            panel1.Controls.Add(myControl);
+        }
+
+        private void Skills_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            var myControl = new Report_Skills();
             panel1.Controls.Add(myControl);
         }
     }

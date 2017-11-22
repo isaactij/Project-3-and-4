@@ -73,6 +73,7 @@
             this.Assignments.TabIndex = 3;
             this.Assignments.Text = "Assignments";
             this.Assignments.UseVisualStyleBackColor = true;
+            this.Assignments.Click += new System.EventHandler(this.Assignments_Click);
             // 
             // Skills
             // 
@@ -82,6 +83,7 @@
             this.Skills.TabIndex = 4;
             this.Skills.Text = "Skills";
             this.Skills.UseVisualStyleBackColor = true;
+            this.Skills.Click += new System.EventHandler(this.Skills_Click);
             // 
             // Logout
             // 
