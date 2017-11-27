@@ -38,8 +38,6 @@
             this.pointLabel = new System.Windows.Forms.Label();
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.descriptionRichTextBox = new System.Windows.Forms.RichTextBox();
-            this.questionLabel = new System.Windows.Forms.Label();
-            this.questionRichTextBox = new System.Windows.Forms.RichTextBox();
             this.openButton = new System.Windows.Forms.Button();
             this.difficultyLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nov17AssignmentsBindingSource1)).BeginInit();
@@ -102,30 +100,13 @@
             // 
             this.descriptionRichTextBox.Location = new System.Drawing.Point(583, 257);
             this.descriptionRichTextBox.Name = "descriptionRichTextBox";
-            this.descriptionRichTextBox.Size = new System.Drawing.Size(489, 174);
+            this.descriptionRichTextBox.Size = new System.Drawing.Size(489, 232);
             this.descriptionRichTextBox.TabIndex = 6;
             this.descriptionRichTextBox.Text = "";
             // 
-            // questionLabel
-            // 
-            this.questionLabel.AutoSize = true;
-            this.questionLabel.Location = new System.Drawing.Point(578, 475);
-            this.questionLabel.Name = "questionLabel";
-            this.questionLabel.Size = new System.Drawing.Size(104, 25);
-            this.questionLabel.TabIndex = 7;
-            this.questionLabel.Text = "Question:";
-            // 
-            // questionRichTextBox
-            // 
-            this.questionRichTextBox.Location = new System.Drawing.Point(583, 513);
-            this.questionRichTextBox.Name = "questionRichTextBox";
-            this.questionRichTextBox.Size = new System.Drawing.Size(489, 174);
-            this.questionRichTextBox.TabIndex = 8;
-            this.questionRichTextBox.Text = "";
-            // 
             // openButton
             // 
-            this.openButton.Location = new System.Drawing.Point(1110, 622);
+            this.openButton.Location = new System.Drawing.Point(912, 624);
             this.openButton.Name = "openButton";
             this.openButton.Size = new System.Drawing.Size(160, 65);
             this.openButton.TabIndex = 9;
@@ -147,8 +128,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.difficultyLabel);
             this.Controls.Add(this.openButton);
-            this.Controls.Add(this.questionRichTextBox);
-            this.Controls.Add(this.questionLabel);
             this.Controls.Add(this.descriptionRichTextBox);
             this.Controls.Add(this.descriptionLabel);
             this.Controls.Add(this.pointLabel);
@@ -174,8 +153,6 @@
         private System.Windows.Forms.Label pointLabel;
         private System.Windows.Forms.Label descriptionLabel;
         private System.Windows.Forms.RichTextBox descriptionRichTextBox;
-        private System.Windows.Forms.Label questionLabel;
-        private System.Windows.Forms.RichTextBox questionRichTextBox;
         private System.Windows.Forms.Button openButton;
         private System.Windows.Forms.Label difficultyLabel;
     }
