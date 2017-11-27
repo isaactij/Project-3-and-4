@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.nov17AssignmentsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this._Project3_4DatabaseDataSet = new Project_3_and_4._Project3_4DatabaseDataSet();
             this.nov17AssignmentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.project34DatabaseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this._Project3_4DatabaseDataSet = new Project_3_and_4._Project3_4DatabaseDataSet();
             this.nov17_AssignmentsTableAdapter = new Project_3_and_4._Project3_4DatabaseDataSetTableAdapters.Nov17_AssignmentsTableAdapter();
-            this.nov17AssignmentsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.chooseAssignmentLabel = new System.Windows.Forms.Label();
             this.skillsLabel = new System.Windows.Forms.Label();
             this.pointLabel = new System.Windows.Forms.Label();
@@ -42,10 +42,11 @@
             this.descriptionRichTextBox = new System.Windows.Forms.RichTextBox();
             this.questionLabel = new System.Windows.Forms.Label();
             this.questionRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.openButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.nov17AssignmentsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._Project3_4DatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nov17AssignmentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.project34DatabaseDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Project3_4DatabaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nov17AssignmentsBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox1
@@ -60,6 +61,16 @@
             this.listBox1.TabIndex = 1;
             this.listBox1.ValueMember = "Assignment Title";
             // 
+            // nov17AssignmentsBindingSource1
+            // 
+            this.nov17AssignmentsBindingSource1.DataMember = "Nov17_Assignments";
+            this.nov17AssignmentsBindingSource1.DataSource = this._Project3_4DatabaseDataSet;
+            // 
+            // _Project3_4DatabaseDataSet
+            // 
+            this._Project3_4DatabaseDataSet.DataSetName = "_Project3_4DatabaseDataSet";
+            this._Project3_4DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // nov17AssignmentsBindingSource
             // 
             this.nov17AssignmentsBindingSource.DataMember = "Nov17_Assignments";
@@ -70,19 +81,9 @@
             this.project34DatabaseDataSetBindingSource.DataSource = this._Project3_4DatabaseDataSet;
             this.project34DatabaseDataSetBindingSource.Position = 0;
             // 
-            // _Project3_4DatabaseDataSet
-            // 
-            this._Project3_4DatabaseDataSet.DataSetName = "_Project3_4DatabaseDataSet";
-            this._Project3_4DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // nov17_AssignmentsTableAdapter
             // 
             this.nov17_AssignmentsTableAdapter.ClearBeforeFill = true;
-            // 
-            // nov17AssignmentsBindingSource1
-            // 
-            this.nov17AssignmentsBindingSource1.DataMember = "Nov17_Assignments";
-            this.nov17AssignmentsBindingSource1.DataSource = this._Project3_4DatabaseDataSet;
             // 
             // chooseAssignmentLabel
             // 
@@ -145,10 +146,20 @@
             this.questionRichTextBox.TabIndex = 8;
             this.questionRichTextBox.Text = "";
             // 
+            // openButton
+            // 
+            this.openButton.Location = new System.Drawing.Point(1110, 622);
+            this.openButton.Name = "openButton";
+            this.openButton.Size = new System.Drawing.Size(160, 65);
+            this.openButton.TabIndex = 9;
+            this.openButton.Text = "Open";
+            this.openButton.UseVisualStyleBackColor = true;
+            // 
             // StudentChooseAssignment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.openButton);
             this.Controls.Add(this.questionRichTextBox);
             this.Controls.Add(this.questionLabel);
             this.Controls.Add(this.descriptionRichTextBox);
@@ -159,10 +170,10 @@
             this.Controls.Add(this.listBox1);
             this.Name = "StudentChooseAssignment";
             this.Size = new System.Drawing.Size(1868, 731);
+            ((System.ComponentModel.ISupportInitialize)(this.nov17AssignmentsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._Project3_4DatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nov17AssignmentsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.project34DatabaseDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Project3_4DatabaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nov17AssignmentsBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,5 +193,6 @@
         private System.Windows.Forms.RichTextBox descriptionRichTextBox;
         private System.Windows.Forms.Label questionLabel;
         private System.Windows.Forms.RichTextBox questionRichTextBox;
+        private System.Windows.Forms.Button openButton;
     }
 }
