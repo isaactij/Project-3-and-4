@@ -65,6 +65,12 @@
     <Compile Include="Report_Skills.Designer.cs">
       <DependentUpon>Report_Skills.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentChooseAssignment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentChooseAssignment.Designer.cs">
+      <DependentUpon>StudentChooseAssignment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Teacher_Create_Assignment.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -96,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report_Skills.resx">
       <DependentUpon>Report_Skills.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentChooseAssignment.resx">
+      <DependentUpon>StudentChooseAssignment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Teacher_Create_Assignment.resx">
       <DependentUpon>Teacher_Create_Assignment.cs</DependentUpon>
