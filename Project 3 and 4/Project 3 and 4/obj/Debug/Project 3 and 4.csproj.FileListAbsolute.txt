@@ -26,7 +26,6 @@ C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\bin\Deb
 C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\bin\Debug\Project 3 and 4.exe
 C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\bin\Debug\Project 3 and 4.pdb
 C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Debug\Project 3 and 4.csprojResolveAssemblyReference.cache
-C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.Form1.resources
 C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.Properties.Resources.resources
 C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.Report_Assignments.resources
 C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.Report_Skills.resources
@@ -36,3 +35,6 @@ C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Deb
 C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Debug\Project 3 and 4.exe
 C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Debug\Project 3 and 4.pdb
 C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.StudentChooseAssignment.resources
+C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.StudentForm.resources
+C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.LoginForm.resources
+C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.TeacherForm.resources

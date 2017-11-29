@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Project_3_and_4
 {
-    public partial class Form1 : Form
+    public partial class TeacherForm : Form
     {
-        public Form1()
+        public TeacherForm()
         {
             InitializeComponent();
         }
@@ -46,6 +46,11 @@ namespace Project_3_and_4
             panel1.Controls.Clear();
             var myControl = new Report_Skills();
             panel1.Controls.Add(myControl);
+        }
+
+        private void Logout_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

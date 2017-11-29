@@ -1,6 +1,6 @@
 ﻿namespace Project_3_and_4
 {
-    partial class Form1
+    partial class TeacherForm
     {
         /// <summary>
         /// Required designer variable.
@@ -40,17 +40,19 @@
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 81);
+            this.panel1.Location = new System.Drawing.Point(0, 156);
+            this.panel1.Margin = new System.Windows.Forms.Padding(6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(934, 380);
+            this.panel1.Size = new System.Drawing.Size(1868, 731);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // Create
             // 
-            this.Create.Location = new System.Drawing.Point(10, 10);
+            this.Create.Location = new System.Drawing.Point(20, 19);
+            this.Create.Margin = new System.Windows.Forms.Padding(6);
             this.Create.Name = "Create";
-            this.Create.Size = new System.Drawing.Size(225, 65);
+            this.Create.Size = new System.Drawing.Size(450, 125);
             this.Create.TabIndex = 1;
             this.Create.Text = "Create";
             this.Create.UseVisualStyleBackColor = true;
@@ -58,18 +60,20 @@
             // 
             // Student_Report
             // 
-            this.Student_Report.Location = new System.Drawing.Point(240, 10);
+            this.Student_Report.Location = new System.Drawing.Point(480, 19);
+            this.Student_Report.Margin = new System.Windows.Forms.Padding(6);
             this.Student_Report.Name = "Student_Report";
-            this.Student_Report.Size = new System.Drawing.Size(225, 65);
+            this.Student_Report.Size = new System.Drawing.Size(450, 125);
             this.Student_Report.TabIndex = 2;
             this.Student_Report.Text = "Student Report";
             this.Student_Report.UseVisualStyleBackColor = true;
             // 
             // Assignments
             // 
-            this.Assignments.Location = new System.Drawing.Point(470, 10);
+            this.Assignments.Location = new System.Drawing.Point(940, 19);
+            this.Assignments.Margin = new System.Windows.Forms.Padding(6);
             this.Assignments.Name = "Assignments";
-            this.Assignments.Size = new System.Drawing.Size(225, 35);
+            this.Assignments.Size = new System.Drawing.Size(450, 67);
             this.Assignments.TabIndex = 3;
             this.Assignments.Text = "Assignments";
             this.Assignments.UseVisualStyleBackColor = true;
@@ -77,9 +81,10 @@
             // 
             // Skills
             // 
-            this.Skills.Location = new System.Drawing.Point(470, 40);
+            this.Skills.Location = new System.Drawing.Point(940, 77);
+            this.Skills.Margin = new System.Windows.Forms.Padding(6);
             this.Skills.Name = "Skills";
-            this.Skills.Size = new System.Drawing.Size(225, 35);
+            this.Skills.Size = new System.Drawing.Size(450, 67);
             this.Skills.TabIndex = 4;
             this.Skills.Text = "Skills";
             this.Skills.UseVisualStyleBackColor = true;
@@ -87,27 +92,30 @@
             // 
             // Logout
             // 
-            this.Logout.Location = new System.Drawing.Point(700, 40);
+            this.Logout.Location = new System.Drawing.Point(1400, 77);
+            this.Logout.Margin = new System.Windows.Forms.Padding(6);
             this.Logout.Name = "Logout";
-            this.Logout.Size = new System.Drawing.Size(225, 35);
+            this.Logout.Size = new System.Drawing.Size(450, 67);
             this.Logout.TabIndex = 5;
             this.Logout.Text = "Logout";
             this.Logout.UseVisualStyleBackColor = true;
+            this.Logout.Click += new System.EventHandler(this.Logout_Click);
             // 
             // Username
             // 
-            this.Username.Location = new System.Drawing.Point(700, 15);
+            this.Username.Location = new System.Drawing.Point(1400, 29);
+            this.Username.Margin = new System.Windows.Forms.Padding(6);
             this.Username.Name = "Username";
-            this.Username.Size = new System.Drawing.Size(225, 20);
+            this.Username.Size = new System.Drawing.Size(446, 31);
             this.Username.TabIndex = 6;
             this.Username.Text = "Username_Placeholder";
             this.Username.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // Form1
+            // TeacherForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 461);
+            this.ClientSize = new System.Drawing.Size(1868, 887);
             this.Controls.Add(this.Username);
             this.Controls.Add(this.Logout);
             this.Controls.Add(this.Skills);
@@ -115,8 +123,9 @@
             this.Controls.Add(this.Student_Report);
             this.Controls.Add(this.Create);
             this.Controls.Add(this.panel1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(6);
+            this.Name = "TeacherForm";
+            this.Text = "TeacherForm";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
