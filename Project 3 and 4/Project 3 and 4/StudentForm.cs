@@ -21,5 +21,12 @@ namespace Project_3_and_4
         {
             Close();
         }
+
+        private void Group_Button_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            var myControl = new Student_Group();
+            panel1.Controls.Add(myControl);
+        }
     }
 }

@@ -22,19 +22,25 @@ D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Projec
 D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Project3&4Rep\Project 3 and 4\Project 3 and 4\obj\Debug\Project 3 and 4.pdb
 D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Project3&4Rep\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.Report_Assignments.resources
 D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Project3&4Rep\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.Report_Skills.resources
-C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\bin\Debug\Project 3 and 4.exe.config
-C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\bin\Debug\Project 3 and 4.exe
-C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\bin\Debug\Project 3 and 4.pdb
-C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Debug\Project 3 and 4.csprojResolveAssemblyReference.cache
-C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.Properties.Resources.resources
-C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.Report_Assignments.resources
-C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.Report_Skills.resources
-C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.Teacher_Create_Assignment.resources
-C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Debug\Project 3 and 4.csproj.GenerateResource.Cache
-C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Debug\Project 3 and 4.csproj.CoreCompileInputs.cache
-C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Debug\Project 3 and 4.exe
-C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Debug\Project 3 and 4.pdb
-C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.StudentChooseAssignment.resources
-C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.StudentForm.resources
-C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.LoginForm.resources
-C:\Users\Hoang\Downloads\Project-3-and-4\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.TeacherForm.resources
+D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Project3&4Rep\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.Teacher_Home.resources
+D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Project3&4Rep\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.Student_Play_Assignments.resources
+D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Project3&4Rep\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.Student_Group.resources
+D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Back up\Project 3 and 4\Project 3 and 4\bin\Debug\Project 3 and 4.exe.config
+D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Back up\Project 3 and 4\Project 3 and 4\bin\Debug\Project 3 and 4.exe
+D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Back up\Project 3 and 4\Project 3 and 4\bin\Debug\Project 3 and 4.pdb
+D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Back up\Project 3 and 4\Project 3 and 4\obj\Debug\Project 3 and 4.csprojResolveAssemblyReference.cache
+D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Back up\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.TeacherForm.resources
+D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Back up\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.LoginForm.resources
+D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Back up\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.Properties.Resources.resources
+D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Back up\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.Report_Assignments.resources
+D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Back up\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.Report_Skills.resources
+D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Back up\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.StudentChooseAssignment.resources
+D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Back up\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.StudentForm.resources
+D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Back up\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.Student_Group.resources
+D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Back up\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.Student_Play_Assignments.resources
+D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Back up\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.Teacher_Create_Assignment.resources
+D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Back up\Project 3 and 4\Project 3 and 4\obj\Debug\Project_3_and_4.Teacher_Home.resources
+D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Back up\Project 3 and 4\Project 3 and 4\obj\Debug\Project 3 and 4.csproj.GenerateResource.Cache
+D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Back up\Project 3 and 4\Project 3 and 4\obj\Debug\Project 3 and 4.csproj.CoreCompileInputs.cache
+D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Back up\Project 3 and 4\Project 3 and 4\obj\Debug\Project 3 and 4.exe
+D:\Documents\school\college\4th year\Fall\Software Engineering\Project3&4\Back up\Project 3 and 4\Project 3 and 4\obj\Debug\Project 3 and 4.pdb

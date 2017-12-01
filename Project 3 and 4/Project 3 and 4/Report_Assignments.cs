@@ -151,7 +151,7 @@ namespace Project_3_and_4
                                 id = Convert.ToInt32(assignment_Grade.Rows[j][2]);
                                 if (assignment_ID == id)
                                 {
-                                    assignment_Grade_Adapter.DeleteQuery(Convert.ToInt32(assignment_Grade.Rows[j][0]), Convert.ToInt32(assignment_Grade.Rows[j][1]), Convert.ToInt32(assignment_Grade.Rows[j][2]), Convert.ToDouble(assignment_Grade.Rows[j][3]));
+                                    assignment_Grade_Adapter.DeleteQuery(Convert.ToInt32(assignment_Grade.Rows[j][0]), Convert.ToInt32(assignment_Grade.Rows[j][1]), Convert.ToInt32(assignment_Grade.Rows[j][2]), Convert.ToInt32(assignment_Grade.Rows[j][3]));
                                 }
                             }
                             assignments_Adapter.DeleteQuery(Convert.ToInt32(assignments_Table.Rows[table_Index][0]), Convert.ToInt32(assignments_Table.Rows[table_Index][4]), Convert.ToInt32(assignments_Table.Rows[table_Index][5]));

@@ -54,7 +54,7 @@
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="LoginForm.designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -74,14 +74,26 @@
     <Compile Include="StudentChooseAssignment.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="StudentChooseAssignment.Designer.cs">
+    <Compile Include="StudentChooseAssignment.designer.cs">
       <DependentUpon>StudentChooseAssignment.cs</DependentUpon>
     </Compile>
     <Compile Include="StudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StudentForm.Designer.cs">
+    <Compile Include="StudentForm.designer.cs">
       <DependentUpon>StudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student_Group.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Student_Group.Designer.cs">
+      <DependentUpon>Student_Group.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student_Play_Assignments.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Student_Play_Assignments.Designer.cs">
+      <DependentUpon>Student_Play_Assignments.cs</DependentUpon>
     </Compile>
     <Compile Include="Teacher_Create_Assignment.cs">
       <SubType>UserControl</SubType>
@@ -89,8 +101,11 @@
     <Compile Include="Teacher_Create_Assignment.Designer.cs">
       <DependentUpon>Teacher_Create_Assignment.cs</DependentUpon>
     </Compile>
-    <Compile Include="_Project3_4DatabaseDataSet.cs">
-      <DependentUpon>_Project3_4DatabaseDataSet.xsd</DependentUpon>
+    <Compile Include="Teacher_Home.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Teacher_Home.Designer.cs">
+      <DependentUpon>Teacher_Home.cs</DependentUpon>
     </Compile>
     <Compile Include="_Project3_4DatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -124,8 +139,17 @@
     <EmbeddedResource Include="StudentForm.resx">
       <DependentUpon>StudentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Student_Group.resx">
+      <DependentUpon>Student_Group.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student_Play_Assignments.resx">
+      <DependentUpon>Student_Play_Assignments.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Teacher_Create_Assignment.resx">
       <DependentUpon>Teacher_Create_Assignment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teacher_Home.resx">
+      <DependentUpon>Teacher_Home.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

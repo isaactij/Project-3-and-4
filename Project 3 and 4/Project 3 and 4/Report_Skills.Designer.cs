@@ -46,8 +46,7 @@
             this.tableLayoutPanel1.Controls.Add(this.Column_Two_Label, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.Column_One_List, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.Column_Two_List, 1, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 49);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 19);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.371191F));
@@ -107,7 +106,7 @@
             this.Controls.Add(this.Page_Title_Label);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Report_Skills";
-            this.Size = new System.Drawing.Size(380, 410);
+            this.Size = new System.Drawing.Size(934, 380);
             this.Load += new System.EventHandler(this.Report_Skills_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

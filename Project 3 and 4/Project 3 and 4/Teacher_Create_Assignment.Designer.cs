@@ -32,7 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Title_label = new System.Windows.Forms.Label();
             this.Assignment_type_label = new System.Windows.Forms.Label();
-            this.Skills_label = new System.Windows.Forms.Label();
             this.Description_label = new System.Windows.Forms.Label();
             this.Question_file_name_label = new System.Windows.Forms.Label();
             this.Choose_assignment_quest = new System.Windows.Forms.RadioButton();
@@ -40,7 +39,6 @@
             this.choose_assignment_project = new System.Windows.Forms.RadioButton();
             this.choose_assignment_quiz = new System.Windows.Forms.RadioButton();
             this.choose_assignment_test = new System.Windows.Forms.RadioButton();
-            this.Skills_checkbox_list = new System.Windows.Forms.CheckedListBox();
             this.Skills_add_skill_text = new System.Windows.Forms.TextBox();
             this.add_skill_button = new System.Windows.Forms.Button();
             this.Description_TextBox = new System.Windows.Forms.RichTextBox();
@@ -51,11 +49,15 @@
             this.Error_Label = new System.Windows.Forms.Label();
             this.Information_Button = new System.Windows.Forms.Button();
             this.Information_Label = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // Create_Button
             // 
-            this.Create_Button.Location = new System.Drawing.Point(461, 329);
+            this.Create_Button.Location = new System.Drawing.Point(847, 350);
             this.Create_Button.Name = "Create_Button";
             this.Create_Button.Size = new System.Drawing.Size(75, 23);
             this.Create_Button.TabIndex = 0;
@@ -90,19 +92,10 @@
             this.Assignment_type_label.TabIndex = 3;
             this.Assignment_type_label.Text = "Choose:";
             // 
-            // Skills_label
-            // 
-            this.Skills_label.AutoSize = true;
-            this.Skills_label.Location = new System.Drawing.Point(3, 104);
-            this.Skills_label.Name = "Skills_label";
-            this.Skills_label.Size = new System.Drawing.Size(34, 13);
-            this.Skills_label.TabIndex = 4;
-            this.Skills_label.Text = "Skills:";
-            // 
             // Description_label
             // 
             this.Description_label.AutoSize = true;
-            this.Description_label.Location = new System.Drawing.Point(3, 218);
+            this.Description_label.Location = new System.Drawing.Point(3, 110);
             this.Description_label.Name = "Description_label";
             this.Description_label.Size = new System.Drawing.Size(60, 13);
             this.Description_label.TabIndex = 5;
@@ -111,7 +104,7 @@
             // Question_file_name_label
             // 
             this.Question_file_name_label.AutoSize = true;
-            this.Question_file_name_label.Location = new System.Drawing.Point(206, 329);
+            this.Question_file_name_label.Location = new System.Drawing.Point(215, 181);
             this.Question_file_name_label.Name = "Question_file_name_label";
             this.Question_file_name_label.Size = new System.Drawing.Size(62, 13);
             this.Question_file_name_label.TabIndex = 6;
@@ -172,24 +165,16 @@
             this.choose_assignment_test.Text = "Test";
             this.choose_assignment_test.UseVisualStyleBackColor = true;
             // 
-            // Skills_checkbox_list
-            // 
-            this.Skills_checkbox_list.FormattingEnabled = true;
-            this.Skills_checkbox_list.Location = new System.Drawing.Point(65, 104);
-            this.Skills_checkbox_list.Name = "Skills_checkbox_list";
-            this.Skills_checkbox_list.Size = new System.Drawing.Size(303, 94);
-            this.Skills_checkbox_list.TabIndex = 12;
-            // 
             // Skills_add_skill_text
             // 
-            this.Skills_add_skill_text.Location = new System.Drawing.Point(374, 104);
+            this.Skills_add_skill_text.Location = new System.Drawing.Point(636, 110);
             this.Skills_add_skill_text.Name = "Skills_add_skill_text";
             this.Skills_add_skill_text.Size = new System.Drawing.Size(162, 20);
             this.Skills_add_skill_text.TabIndex = 13;
             // 
             // add_skill_button
             // 
-            this.add_skill_button.Location = new System.Drawing.Point(374, 140);
+            this.add_skill_button.Location = new System.Drawing.Point(636, 140);
             this.add_skill_button.Name = "add_skill_button";
             this.add_skill_button.Size = new System.Drawing.Size(75, 23);
             this.add_skill_button.TabIndex = 14;
@@ -199,15 +184,16 @@
             // 
             // Description_TextBox
             // 
-            this.Description_TextBox.Location = new System.Drawing.Point(65, 215);
+            this.Description_TextBox.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.Description_TextBox.Location = new System.Drawing.Point(65, 110);
             this.Description_TextBox.Name = "Description_TextBox";
-            this.Description_TextBox.Size = new System.Drawing.Size(471, 96);
+            this.Description_TextBox.Size = new System.Drawing.Size(471, 53);
             this.Description_TextBox.TabIndex = 15;
             this.Description_TextBox.Text = "";
             // 
             // Import_Question_Bank
             // 
-            this.Import_Question_Bank.Location = new System.Drawing.Point(65, 324);
+            this.Import_Question_Bank.Location = new System.Drawing.Point(65, 181);
             this.Import_Question_Bank.Name = "Import_Question_Bank";
             this.Import_Question_Bank.Size = new System.Drawing.Size(133, 23);
             this.Import_Question_Bank.TabIndex = 16;
@@ -224,7 +210,7 @@
             // 
             // remove_skill_button
             // 
-            this.remove_skill_button.Location = new System.Drawing.Point(461, 140);
+            this.remove_skill_button.Location = new System.Drawing.Point(723, 140);
             this.remove_skill_button.Name = "remove_skill_button";
             this.remove_skill_button.Size = new System.Drawing.Size(75, 23);
             this.remove_skill_button.TabIndex = 18;
@@ -240,15 +226,14 @@
             // Error_Label
             // 
             this.Error_Label.AutoSize = true;
-            this.Error_Label.Location = new System.Drawing.Point(64, 350);
+            this.Error_Label.Location = new System.Drawing.Point(243, 10);
             this.Error_Label.Name = "Error_Label";
-            this.Error_Label.Size = new System.Drawing.Size(73, 13);
+            this.Error_Label.Size = new System.Drawing.Size(0, 13);
             this.Error_Label.TabIndex = 19;
-            this.Error_Label.Text = "validationText";
             // 
             // Information_Button
             // 
-            this.Information_Button.Location = new System.Drawing.Point(344, 323);
+            this.Information_Button.Location = new System.Drawing.Point(509, 181);
             this.Information_Button.Name = "Information_Button";
             this.Information_Button.Size = new System.Drawing.Size(24, 24);
             this.Information_Button.TabIndex = 20;
@@ -265,10 +250,30 @@
             this.Information_Label.Size = new System.Drawing.Size(0, 13);
             this.Information_Label.TabIndex = 21;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Location = new System.Drawing.Point(65, 211);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(471, 169);
+            this.panel1.TabIndex = 23;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(468, 162);
+            this.dataGridView1.TabIndex = 0;
+            // 
             // Teacher_Create_Assignment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.Information_Label);
             this.Controls.Add(this.Information_Button);
             this.Controls.Add(this.Error_Label);
@@ -278,7 +283,6 @@
             this.Controls.Add(this.Description_TextBox);
             this.Controls.Add(this.add_skill_button);
             this.Controls.Add(this.Skills_add_skill_text);
-            this.Controls.Add(this.Skills_checkbox_list);
             this.Controls.Add(this.choose_assignment_test);
             this.Controls.Add(this.choose_assignment_quiz);
             this.Controls.Add(this.choose_assignment_project);
@@ -286,7 +290,6 @@
             this.Controls.Add(this.Choose_assignment_quest);
             this.Controls.Add(this.Question_file_name_label);
             this.Controls.Add(this.Description_label);
-            this.Controls.Add(this.Skills_label);
             this.Controls.Add(this.Assignment_type_label);
             this.Controls.Add(this.Title_label);
             this.Controls.Add(this.label1);
@@ -294,6 +297,8 @@
             this.Name = "Teacher_Create_Assignment";
             this.Size = new System.Drawing.Size(934, 380);
             this.Load += new System.EventHandler(this.Teacher_Create_Assignment_Load);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,7 +310,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label Title_label;
         private System.Windows.Forms.Label Assignment_type_label;
-        private System.Windows.Forms.Label Skills_label;
         private System.Windows.Forms.Label Description_label;
         private System.Windows.Forms.Label Question_file_name_label;
         private System.Windows.Forms.RadioButton Choose_assignment_quest;
@@ -313,7 +317,6 @@
         private System.Windows.Forms.RadioButton choose_assignment_project;
         private System.Windows.Forms.RadioButton choose_assignment_quiz;
         private System.Windows.Forms.RadioButton choose_assignment_test;
-        private System.Windows.Forms.CheckedListBox Skills_checkbox_list;
         private System.Windows.Forms.TextBox Skills_add_skill_text;
         private System.Windows.Forms.Button add_skill_button;
         private System.Windows.Forms.RichTextBox Description_TextBox;
@@ -324,5 +327,8 @@
         private System.Windows.Forms.Label Error_Label;
         private System.Windows.Forms.Button Information_Button;
         private System.Windows.Forms.Label Information_Label;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }
