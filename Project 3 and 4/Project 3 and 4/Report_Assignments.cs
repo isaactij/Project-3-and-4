@@ -15,11 +15,11 @@ namespace Project_3_and_4
         _Project3_4DatabaseDataSetTableAdapters.Nov17_AssignmentsTableAdapter assignments_Adapter;
         _Project3_4DatabaseDataSetTableAdapters.Nov17_Assignment_TypesTableAdapter assignment_Types_Adapter;
         _Project3_4DatabaseDataSetTableAdapters.Nov18_Assignment_GradeTableAdapter assignment_Grade_Adapter;
-        _Project3_4DatabaseDataSetTableAdapters.Nov17_Skills_In_AssignmentsTableAdapter skills_In_Assignments_Adapter;
+        _Project3_4DatabaseDataSetTableAdapters.Nov25_QuestionsTableAdapter questions_Adapter;
         public static DataTable assignments_Table;
         public static DataTable assignment_Types_Table;
         public static DataTable assignment_Grade;
-        public static DataTable skills_In_Assignments_Table;
+        DataTable questions_Table;
 
         public Report_Assignments()
         {
@@ -78,7 +78,7 @@ namespace Project_3_and_4
             for (int i = 0; i < count; i++)
             {
                 Column_One_List.Items.Add(assignments_Table.Rows[i][1]);
-                int assignment_Type = Convert.ToInt32(assignments_Table.Rows[i][4]);
+                int assignment_Type = Convert.ToInt32(assignments_Table.Rows[i][3]);
                 int row_Position = 0;
                 bool while_Continue = true;
                 while (while_Continue)
@@ -120,10 +120,10 @@ namespace Project_3_and_4
         {
             assignments_Adapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_AssignmentsTableAdapter();
             assignment_Grade_Adapter = new _Project3_4DatabaseDataSetTableAdapters.Nov18_Assignment_GradeTableAdapter();
-            skills_In_Assignments_Adapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_Skills_In_AssignmentsTableAdapter();
+            questions_Adapter = new _Project3_4DatabaseDataSetTableAdapters.Nov25_QuestionsTableAdapter();
             assignments_Table = assignments_Adapter.GetData();
             assignment_Grade = assignment_Grade_Adapter.GetData();
-            skills_In_Assignments_Table = skills_In_Assignments_Adapter.GetData();
+            questions_Table = questions_Adapter.GetData();
             for (int i = 0; i < Column_One_List.Items.Count; i++)
             {
                 if (Column_One_List.GetItemChecked(i))
@@ -137,12 +137,12 @@ namespace Project_3_and_4
                         {
                             int assignment_ID = Convert.ToInt32(assignments_Table.Rows[table_Index][0]);
                             int id;
-                            for (int j = 0; j < skills_In_Assignments_Table.Rows.Count; j++)
+                            for (int j = 0; j < questions_Table.Rows.Count; j++)
                             {
-                                id = Convert.ToInt32(skills_In_Assignments_Table.Rows[j][1]);
+                                id = Convert.ToInt32(questions_Table.Rows[j][4]);
                                 if (assignment_ID == id)
                                 {
-                                    skills_In_Assignments_Adapter.DeleteQuery(Convert.ToInt32(skills_In_Assignments_Table.Rows[j][0]), Convert.ToInt32(skills_In_Assignments_Table.Rows[j][1]), Convert.ToInt32(skills_In_Assignments_Table.Rows[j][2]));
+                                    questions_Adapter.DeleteQuery(Convert.ToInt32(questions_Table.Rows[j][0]), Convert.ToInt32(questions_Table.Rows[j][2]), Convert.ToInt32(questions_Table.Rows[j][3]), Convert.ToInt32(questions_Table.Rows[j][4]));
                                 }
                             }
 
@@ -154,7 +154,7 @@ namespace Project_3_and_4
                                     assignment_Grade_Adapter.DeleteQuery(Convert.ToInt32(assignment_Grade.Rows[j][0]), Convert.ToInt32(assignment_Grade.Rows[j][1]), Convert.ToInt32(assignment_Grade.Rows[j][2]), Convert.ToInt32(assignment_Grade.Rows[j][3]));
                                 }
                             }
-                            assignments_Adapter.DeleteQuery(Convert.ToInt32(assignments_Table.Rows[table_Index][0]), Convert.ToInt32(assignments_Table.Rows[table_Index][4]), Convert.ToInt32(assignments_Table.Rows[table_Index][5]));
+                            assignments_Adapter.DeleteQuery(Convert.ToInt32(assignments_Table.Rows[table_Index][0]), Convert.ToInt32(assignments_Table.Rows[table_Index][3]), Convert.ToInt32(assignments_Table.Rows[table_Index][4]));
                             continue_While = false;
                             Fill_Columns();
                         }

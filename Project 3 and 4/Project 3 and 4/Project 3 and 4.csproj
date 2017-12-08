@@ -107,6 +107,9 @@
     <Compile Include="Teacher_Home.Designer.cs">
       <DependentUpon>Teacher_Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="_Project3_4DatabaseDataSet.cs">
+      <DependentUpon>_Project3_4DatabaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="_Project3_4DatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

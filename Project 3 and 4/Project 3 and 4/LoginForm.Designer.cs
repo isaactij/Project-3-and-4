@@ -28,40 +28,76 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.teacherButton = new System.Windows.Forms.Button();
-            this.studentButton = new System.Windows.Forms.Button();
+            this.Login_username_label = new System.Windows.Forms.Label();
+            this.Login_password_label = new System.Windows.Forms.Label();
+            this.Login_username_textbox = new System.Windows.Forms.TextBox();
+            this.Login_password_textbox = new System.Windows.Forms.TextBox();
+            this.Login_login_button = new System.Windows.Forms.Button();
+            this.Login_error_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // teacherButton
+            // Login_username_label
             // 
-            this.teacherButton.Location = new System.Drawing.Point(109, 167);
-            this.teacherButton.Name = "teacherButton";
-            this.teacherButton.Size = new System.Drawing.Size(317, 223);
-            this.teacherButton.TabIndex = 0;
-            this.teacherButton.Text = "Teacher";
-            this.teacherButton.UseVisualStyleBackColor = true;
-            this.teacherButton.Click += new System.EventHandler(this.teacherButton_Click);
+            this.Login_username_label.AutoSize = true;
+            this.Login_username_label.Location = new System.Drawing.Point(23, 57);
+            this.Login_username_label.Name = "Login_username_label";
+            this.Login_username_label.Size = new System.Drawing.Size(55, 13);
+            this.Login_username_label.TabIndex = 0;
+            this.Login_username_label.Text = "Username";
             // 
-            // studentButton
+            // Login_password_label
             // 
-            this.studentButton.Location = new System.Drawing.Point(456, 167);
-            this.studentButton.Name = "studentButton";
-            this.studentButton.Size = new System.Drawing.Size(317, 223);
-            this.studentButton.TabIndex = 1;
-            this.studentButton.Text = "Student";
-            this.studentButton.UseVisualStyleBackColor = true;
-            this.studentButton.Click += new System.EventHandler(this.studentButton_Click);
+            this.Login_password_label.AutoSize = true;
+            this.Login_password_label.Location = new System.Drawing.Point(23, 101);
+            this.Login_password_label.Name = "Login_password_label";
+            this.Login_password_label.Size = new System.Drawing.Size(53, 13);
+            this.Login_password_label.TabIndex = 1;
+            this.Login_password_label.Text = "Password";
+            // 
+            // Login_username_textbox
+            // 
+            this.Login_username_textbox.Location = new System.Drawing.Point(26, 73);
+            this.Login_username_textbox.Name = "Login_username_textbox";
+            this.Login_username_textbox.Size = new System.Drawing.Size(175, 20);
+            this.Login_username_textbox.TabIndex = 2;
+            // 
+            // Login_password_textbox
+            // 
+            this.Login_password_textbox.Location = new System.Drawing.Point(26, 117);
+            this.Login_password_textbox.Name = "Login_password_textbox";
+            this.Login_password_textbox.Size = new System.Drawing.Size(175, 20);
+            this.Login_password_textbox.TabIndex = 3;
+            // 
+            // Login_login_button
+            // 
+            this.Login_login_button.Location = new System.Drawing.Point(26, 186);
+            this.Login_login_button.Name = "Login_login_button";
+            this.Login_login_button.Size = new System.Drawing.Size(75, 23);
+            this.Login_login_button.TabIndex = 4;
+            this.Login_login_button.Text = "Login";
+            this.Login_login_button.UseVisualStyleBackColor = true;
+            this.Login_login_button.Click += new System.EventHandler(this.Login_login_button_Click);
+            // 
+            // Login_error_label
+            // 
+            this.Login_error_label.AutoSize = true;
+            this.Login_error_label.Location = new System.Drawing.Point(28, 152);
+            this.Login_error_label.Name = "Login_error_label";
+            this.Login_error_label.Size = new System.Drawing.Size(0, 13);
+            this.Login_error_label.TabIndex = 5;
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(872, 569);
-            this.Controls.Add(this.studentButton);
-            this.Controls.Add(this.teacherButton);
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.Login_error_label);
+            this.Controls.Add(this.Login_login_button);
+            this.Controls.Add(this.Login_password_textbox);
+            this.Controls.Add(this.Login_username_textbox);
+            this.Controls.Add(this.Login_password_label);
+            this.Controls.Add(this.Login_username_label);
             this.Name = "LoginForm";
-            this.Text = "LoginForm";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -69,5 +105,11 @@
 
         private System.Windows.Forms.Button teacherButton;
         private System.Windows.Forms.Button studentButton;
+        private System.Windows.Forms.Label Login_username_label;
+        private System.Windows.Forms.Label Login_password_label;
+        private System.Windows.Forms.TextBox Login_username_textbox;
+        private System.Windows.Forms.TextBox Login_password_textbox;
+        private System.Windows.Forms.Button Login_login_button;
+        private System.Windows.Forms.Label Login_error_label;
     }
 }

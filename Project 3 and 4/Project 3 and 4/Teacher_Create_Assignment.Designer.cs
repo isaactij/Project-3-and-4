@@ -34,11 +34,6 @@
             this.Assignment_type_label = new System.Windows.Forms.Label();
             this.Description_label = new System.Windows.Forms.Label();
             this.Question_file_name_label = new System.Windows.Forms.Label();
-            this.Choose_assignment_quest = new System.Windows.Forms.RadioButton();
-            this.Choose_assignment_hw = new System.Windows.Forms.RadioButton();
-            this.choose_assignment_project = new System.Windows.Forms.RadioButton();
-            this.choose_assignment_quiz = new System.Windows.Forms.RadioButton();
-            this.choose_assignment_test = new System.Windows.Forms.RadioButton();
             this.Skills_add_skill_text = new System.Windows.Forms.TextBox();
             this.add_skill_button = new System.Windows.Forms.Button();
             this.Description_TextBox = new System.Windows.Forms.RichTextBox();
@@ -51,6 +46,18 @@
             this.Information_Label = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Add_Difficulty_Button = new System.Windows.Forms.Button();
+            this.Remove_Difficulty_Button = new System.Windows.Forms.Button();
+            this.Difficulty_Name_Textbox = new System.Windows.Forms.TextBox();
+            this.Difficulty_Name_Title_Label = new System.Windows.Forms.Label();
+            this.Difficulty_Amount_Title_Label = new System.Windows.Forms.Label();
+            this.Difficulty_Level_Amount_Textbox = new System.Windows.Forms.TextBox();
+            this.Add_or_Remove_Button = new System.Windows.Forms.Button();
+            this.choose_assignment_test = new System.Windows.Forms.RadioButton();
+            this.choose_assignment_quiz = new System.Windows.Forms.RadioButton();
+            this.Choose_assignment_hw = new System.Windows.Forms.RadioButton();
+            this.Choose_assignment_quest = new System.Windows.Forms.RadioButton();
+            this.choose_assignment_project = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -110,71 +117,16 @@
             this.Question_file_name_label.TabIndex = 6;
             this.Question_file_name_label.Text = "fileName.txt";
             // 
-            // Choose_assignment_quest
-            // 
-            this.Choose_assignment_quest.AutoSize = true;
-            this.Choose_assignment_quest.Location = new System.Drawing.Point(65, 68);
-            this.Choose_assignment_quest.Name = "Choose_assignment_quest";
-            this.Choose_assignment_quest.Size = new System.Drawing.Size(53, 17);
-            this.Choose_assignment_quest.TabIndex = 7;
-            this.Choose_assignment_quest.TabStop = true;
-            this.Choose_assignment_quest.Text = "Quest";
-            this.Choose_assignment_quest.UseVisualStyleBackColor = true;
-            // 
-            // Choose_assignment_hw
-            // 
-            this.Choose_assignment_hw.AutoSize = true;
-            this.Choose_assignment_hw.Location = new System.Drawing.Point(124, 68);
-            this.Choose_assignment_hw.Name = "Choose_assignment_hw";
-            this.Choose_assignment_hw.Size = new System.Drawing.Size(76, 17);
-            this.Choose_assignment_hw.TabIndex = 8;
-            this.Choose_assignment_hw.TabStop = true;
-            this.Choose_assignment_hw.Text = "Homework";
-            this.Choose_assignment_hw.UseVisualStyleBackColor = true;
-            // 
-            // choose_assignment_project
-            // 
-            this.choose_assignment_project.AutoSize = true;
-            this.choose_assignment_project.Location = new System.Drawing.Point(206, 68);
-            this.choose_assignment_project.Name = "choose_assignment_project";
-            this.choose_assignment_project.Size = new System.Drawing.Size(58, 17);
-            this.choose_assignment_project.TabIndex = 9;
-            this.choose_assignment_project.TabStop = true;
-            this.choose_assignment_project.Text = "Project";
-            this.choose_assignment_project.UseVisualStyleBackColor = true;
-            // 
-            // choose_assignment_quiz
-            // 
-            this.choose_assignment_quiz.AutoSize = true;
-            this.choose_assignment_quiz.Location = new System.Drawing.Point(270, 68);
-            this.choose_assignment_quiz.Name = "choose_assignment_quiz";
-            this.choose_assignment_quiz.Size = new System.Drawing.Size(46, 17);
-            this.choose_assignment_quiz.TabIndex = 10;
-            this.choose_assignment_quiz.TabStop = true;
-            this.choose_assignment_quiz.Text = "Quiz";
-            this.choose_assignment_quiz.UseVisualStyleBackColor = true;
-            // 
-            // choose_assignment_test
-            // 
-            this.choose_assignment_test.AutoSize = true;
-            this.choose_assignment_test.Location = new System.Drawing.Point(322, 68);
-            this.choose_assignment_test.Name = "choose_assignment_test";
-            this.choose_assignment_test.Size = new System.Drawing.Size(46, 17);
-            this.choose_assignment_test.TabIndex = 11;
-            this.choose_assignment_test.TabStop = true;
-            this.choose_assignment_test.Text = "Test";
-            this.choose_assignment_test.UseVisualStyleBackColor = true;
-            // 
             // Skills_add_skill_text
             // 
-            this.Skills_add_skill_text.Location = new System.Drawing.Point(636, 110);
+            this.Skills_add_skill_text.Location = new System.Drawing.Point(672, 110);
             this.Skills_add_skill_text.Name = "Skills_add_skill_text";
             this.Skills_add_skill_text.Size = new System.Drawing.Size(162, 20);
             this.Skills_add_skill_text.TabIndex = 13;
             // 
             // add_skill_button
             // 
-            this.add_skill_button.Location = new System.Drawing.Point(636, 140);
+            this.add_skill_button.Location = new System.Drawing.Point(672, 140);
             this.add_skill_button.Name = "add_skill_button";
             this.add_skill_button.Size = new System.Drawing.Size(75, 23);
             this.add_skill_button.TabIndex = 14;
@@ -210,7 +162,7 @@
             // 
             // remove_skill_button
             // 
-            this.remove_skill_button.Location = new System.Drawing.Point(723, 140);
+            this.remove_skill_button.Location = new System.Drawing.Point(759, 140);
             this.remove_skill_button.Name = "remove_skill_button";
             this.remove_skill_button.Size = new System.Drawing.Size(75, 23);
             this.remove_skill_button.TabIndex = 18;
@@ -228,8 +180,9 @@
             this.Error_Label.AutoSize = true;
             this.Error_Label.Location = new System.Drawing.Point(243, 10);
             this.Error_Label.Name = "Error_Label";
-            this.Error_Label.Size = new System.Drawing.Size(0, 13);
+            this.Error_Label.Size = new System.Drawing.Size(58, 13);
             this.Error_Label.TabIndex = 19;
+            this.Error_Label.Text = "Error Label";
             // 
             // Information_Button
             // 
@@ -245,10 +198,11 @@
             // 
             this.Information_Label.AutoSize = true;
             this.Information_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Information_Label.Location = new System.Drawing.Point(382, 324);
+            this.Information_Label.Location = new System.Drawing.Point(549, 9);
             this.Information_Label.Name = "Information_Label";
-            this.Information_Label.Size = new System.Drawing.Size(0, 13);
+            this.Information_Label.Size = new System.Drawing.Size(88, 13);
             this.Information_Label.TabIndex = 21;
+            this.Information_Label.Text = "Information Label";
             // 
             // panel1
             // 
@@ -269,10 +223,140 @@
             this.dataGridView1.Size = new System.Drawing.Size(468, 162);
             this.dataGridView1.TabIndex = 0;
             // 
+            // Add_Difficulty_Button
+            // 
+            this.Add_Difficulty_Button.Location = new System.Drawing.Point(672, 211);
+            this.Add_Difficulty_Button.Name = "Add_Difficulty_Button";
+            this.Add_Difficulty_Button.Size = new System.Drawing.Size(142, 23);
+            this.Add_Difficulty_Button.TabIndex = 24;
+            this.Add_Difficulty_Button.Text = "Click to Add Difficulty";
+            this.Add_Difficulty_Button.UseVisualStyleBackColor = true;
+            this.Add_Difficulty_Button.Click += new System.EventHandler(this.Add_Difficulty_Button_Click);
+            // 
+            // Remove_Difficulty_Button
+            // 
+            this.Remove_Difficulty_Button.Location = new System.Drawing.Point(672, 241);
+            this.Remove_Difficulty_Button.Name = "Remove_Difficulty_Button";
+            this.Remove_Difficulty_Button.Size = new System.Drawing.Size(142, 23);
+            this.Remove_Difficulty_Button.TabIndex = 25;
+            this.Remove_Difficulty_Button.Text = "Click to Remove Difficulty";
+            this.Remove_Difficulty_Button.UseVisualStyleBackColor = true;
+            this.Remove_Difficulty_Button.Click += new System.EventHandler(this.Remove_Difficulty_Button_Click);
+            // 
+            // Difficulty_Name_Textbox
+            // 
+            this.Difficulty_Name_Textbox.Location = new System.Drawing.Point(672, 275);
+            this.Difficulty_Name_Textbox.Name = "Difficulty_Name_Textbox";
+            this.Difficulty_Name_Textbox.Size = new System.Drawing.Size(100, 20);
+            this.Difficulty_Name_Textbox.TabIndex = 26;
+            // 
+            // Difficulty_Name_Title_Label
+            // 
+            this.Difficulty_Name_Title_Label.AutoSize = true;
+            this.Difficulty_Name_Title_Label.Location = new System.Drawing.Point(575, 278);
+            this.Difficulty_Name_Title_Label.Name = "Difficulty_Name_Title_Label";
+            this.Difficulty_Name_Title_Label.Size = new System.Drawing.Size(78, 13);
+            this.Difficulty_Name_Title_Label.TabIndex = 27;
+            this.Difficulty_Name_Title_Label.Text = "Difficulty Name";
+            // 
+            // Difficulty_Amount_Title_Label
+            // 
+            this.Difficulty_Amount_Title_Label.AutoSize = true;
+            this.Difficulty_Amount_Title_Label.Location = new System.Drawing.Point(549, 315);
+            this.Difficulty_Amount_Title_Label.Name = "Difficulty_Amount_Title_Label";
+            this.Difficulty_Amount_Title_Label.Size = new System.Drawing.Size(115, 13);
+            this.Difficulty_Amount_Title_Label.TabIndex = 28;
+            this.Difficulty_Amount_Title_Label.Text = "Difficulty Level Amount";
+            this.Difficulty_Amount_Title_Label.Click += new System.EventHandler(this.Difficulty_Amount_Title_Label_Click);
+            // 
+            // Difficulty_Level_Amount_Textbox
+            // 
+            this.Difficulty_Level_Amount_Textbox.Location = new System.Drawing.Point(672, 308);
+            this.Difficulty_Level_Amount_Textbox.Name = "Difficulty_Level_Amount_Textbox";
+            this.Difficulty_Level_Amount_Textbox.Size = new System.Drawing.Size(100, 20);
+            this.Difficulty_Level_Amount_Textbox.TabIndex = 29;
+            // 
+            // Add_or_Remove_Button
+            // 
+            this.Add_or_Remove_Button.Location = new System.Drawing.Point(794, 273);
+            this.Add_or_Remove_Button.Name = "Add_or_Remove_Button";
+            this.Add_or_Remove_Button.Size = new System.Drawing.Size(75, 23);
+            this.Add_or_Remove_Button.TabIndex = 30;
+            this.Add_or_Remove_Button.Text = "A/R";
+            this.Add_or_Remove_Button.UseVisualStyleBackColor = true;
+            this.Add_or_Remove_Button.Click += new System.EventHandler(this.Add_or_Remove_Button_Click);
+            // 
+            // choose_assignment_test
+            // 
+            this.choose_assignment_test.AutoSize = true;
+            this.choose_assignment_test.Location = new System.Drawing.Point(322, 68);
+            this.choose_assignment_test.Name = "choose_assignment_test";
+            this.choose_assignment_test.Size = new System.Drawing.Size(46, 17);
+            this.choose_assignment_test.TabIndex = 11;
+            this.choose_assignment_test.TabStop = true;
+            this.choose_assignment_test.Text = "Test";
+            this.choose_assignment_test.UseVisualStyleBackColor = true;
+            this.choose_assignment_test.CheckedChanged += new System.EventHandler(this.choose_assignment_test_CheckedChanged);
+            // 
+            // choose_assignment_quiz
+            // 
+            this.choose_assignment_quiz.AutoSize = true;
+            this.choose_assignment_quiz.Location = new System.Drawing.Point(270, 68);
+            this.choose_assignment_quiz.Name = "choose_assignment_quiz";
+            this.choose_assignment_quiz.Size = new System.Drawing.Size(46, 17);
+            this.choose_assignment_quiz.TabIndex = 10;
+            this.choose_assignment_quiz.TabStop = true;
+            this.choose_assignment_quiz.Text = "Quiz";
+            this.choose_assignment_quiz.UseVisualStyleBackColor = true;
+            this.choose_assignment_quiz.CheckedChanged += new System.EventHandler(this.choose_assignment_quiz_CheckedChanged);
+            // 
+            // Choose_assignment_hw
+            // 
+            this.Choose_assignment_hw.AutoSize = true;
+            this.Choose_assignment_hw.Location = new System.Drawing.Point(124, 68);
+            this.Choose_assignment_hw.Name = "Choose_assignment_hw";
+            this.Choose_assignment_hw.Size = new System.Drawing.Size(76, 17);
+            this.Choose_assignment_hw.TabIndex = 8;
+            this.Choose_assignment_hw.TabStop = true;
+            this.Choose_assignment_hw.Text = "Homework";
+            this.Choose_assignment_hw.UseVisualStyleBackColor = true;
+            this.Choose_assignment_hw.CheckedChanged += new System.EventHandler(this.Choose_assignment_hw_CheckedChanged);
+            // 
+            // Choose_assignment_quest
+            // 
+            this.Choose_assignment_quest.AutoSize = true;
+            this.Choose_assignment_quest.Location = new System.Drawing.Point(65, 68);
+            this.Choose_assignment_quest.Name = "Choose_assignment_quest";
+            this.Choose_assignment_quest.Size = new System.Drawing.Size(53, 17);
+            this.Choose_assignment_quest.TabIndex = 7;
+            this.Choose_assignment_quest.TabStop = true;
+            this.Choose_assignment_quest.Text = "Quest";
+            this.Choose_assignment_quest.UseVisualStyleBackColor = true;
+            this.Choose_assignment_quest.CheckedChanged += new System.EventHandler(this.Choose_assignment_quest_CheckedChanged);
+            // 
+            // choose_assignment_project
+            // 
+            this.choose_assignment_project.AutoSize = true;
+            this.choose_assignment_project.Location = new System.Drawing.Point(206, 68);
+            this.choose_assignment_project.Name = "choose_assignment_project";
+            this.choose_assignment_project.Size = new System.Drawing.Size(58, 17);
+            this.choose_assignment_project.TabIndex = 9;
+            this.choose_assignment_project.TabStop = true;
+            this.choose_assignment_project.Text = "Project";
+            this.choose_assignment_project.UseVisualStyleBackColor = true;
+            this.choose_assignment_project.CheckedChanged += new System.EventHandler(this.choose_assignment_project_CheckedChanged);
+            // 
             // Teacher_Create_Assignment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.Add_or_Remove_Button);
+            this.Controls.Add(this.Difficulty_Level_Amount_Textbox);
+            this.Controls.Add(this.Difficulty_Amount_Title_Label);
+            this.Controls.Add(this.Difficulty_Name_Title_Label);
+            this.Controls.Add(this.Difficulty_Name_Textbox);
+            this.Controls.Add(this.Remove_Difficulty_Button);
+            this.Controls.Add(this.Add_Difficulty_Button);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Information_Label);
             this.Controls.Add(this.Information_Button);
@@ -312,11 +396,6 @@
         private System.Windows.Forms.Label Assignment_type_label;
         private System.Windows.Forms.Label Description_label;
         private System.Windows.Forms.Label Question_file_name_label;
-        private System.Windows.Forms.RadioButton Choose_assignment_quest;
-        private System.Windows.Forms.RadioButton Choose_assignment_hw;
-        private System.Windows.Forms.RadioButton choose_assignment_project;
-        private System.Windows.Forms.RadioButton choose_assignment_quiz;
-        private System.Windows.Forms.RadioButton choose_assignment_test;
         private System.Windows.Forms.TextBox Skills_add_skill_text;
         private System.Windows.Forms.Button add_skill_button;
         private System.Windows.Forms.RichTextBox Description_TextBox;
@@ -330,5 +409,17 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.Button Add_Difficulty_Button;
+        private System.Windows.Forms.Button Remove_Difficulty_Button;
+        private System.Windows.Forms.TextBox Difficulty_Name_Textbox;
+        private System.Windows.Forms.Label Difficulty_Name_Title_Label;
+        private System.Windows.Forms.Label Difficulty_Amount_Title_Label;
+        private System.Windows.Forms.TextBox Difficulty_Level_Amount_Textbox;
+        private System.Windows.Forms.Button Add_or_Remove_Button;
+        private System.Windows.Forms.RadioButton choose_assignment_test;
+        private System.Windows.Forms.RadioButton choose_assignment_quiz;
+        private System.Windows.Forms.RadioButton Choose_assignment_hw;
+        private System.Windows.Forms.RadioButton Choose_assignment_quest;
+        private System.Windows.Forms.RadioButton choose_assignment_project;
     }
 }

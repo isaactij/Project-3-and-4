@@ -47,8 +47,6 @@ namespace Project_3_and_4
 
         private void Students_listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //string selected = Students_listBox1.SelectedItem.ToString();
-            //if (selected.Equals(""))
             if(Students_listBox1.SelectedItem == null)
             {
                 panel1.Hide();
@@ -60,6 +58,7 @@ namespace Project_3_and_4
         }
 
         private void Fill_Panel() {
+            Level_ProgressBar.Show();
             Column_One_listBox.Items.Clear();
             Column_Two_listBox.Items.Clear();
             Level_ProgressBar.Value = 0;
@@ -71,8 +70,15 @@ namespace Project_3_and_4
                     Level_ProgressBar.Minimum = 0;
                     for (int j = 0; j < student_Levels_Table.Rows.Count; j++) {
                         if (level_ID == Convert.ToInt32(student_Levels_Table.Rows[j][0])){
-                            Level_Text.Text = Convert.ToString(student_Levels_Table.Rows[j][2]);
-                            int level_Difference = Convert.ToInt32(student_Levels_Table.Rows[j + 1][1]) - Convert.ToInt32(student_Levels_Table.Rows[j][1]);
+                            Level_Text.Text = Convert.ToString(student_Levels_Table.Rows[j][1]);
+                            int level_Difference = 0;
+                            if (j != student_Levels_Table.Rows.Count - 1)
+                            {
+                                level_Difference = Convert.ToInt32(student_Levels_Table.Rows[j + 1][2]) - Convert.ToInt32(student_Levels_Table.Rows[j][2]);
+                            }
+                            else {
+                                Level_ProgressBar.Hide();
+                            }
                             Level_ProgressBar.Maximum = level_Difference;
                         }
                     }
