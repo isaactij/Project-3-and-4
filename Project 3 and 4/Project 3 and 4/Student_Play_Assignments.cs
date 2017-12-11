@@ -26,9 +26,7 @@ namespace Project_3_and_4
         DataTable difficutly_Levels_Table;
         DataTable students_Table;
         DataTable student_Levels_Table;
-        //Change Later
         public int assignment_ID;
-        //Change Later
         public int student_ID;
         bool has_Questions;
         string[,] questions;
@@ -39,15 +37,15 @@ namespace Project_3_and_4
         public int[] user_Answers;
         public int[] level_Amounts;
 
-        public Student_Play_Assignments()
+        public Student_Play_Assignments(int assignment, int student)
         {
             InitializeComponent();
+            Student_Load(student);
+            set_ID(assignment);
         }
 
         private void Student_Play_Assignments_Load(object sender, EventArgs e)
         {
-            student_ID = 1;
-
             assignments_Adapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_AssignmentsTableAdapter();
             assignments_Table = assignments_Adapter.GetData();
             assignment_Types_Adapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_Assignment_TypesTableAdapter();
@@ -58,6 +56,11 @@ namespace Project_3_and_4
         public void set_ID(int ID)
         {
             assignment_ID = ID;
+        }
+
+        public void Student_Load(int student_ID_Load)
+        {
+            student_ID = student_ID_Load;
         }
 
         private void Set_Up_Panel()

@@ -15,7 +15,7 @@ namespace Project_3_and_4
     {
         public static string[] skills_List;
         bool errors = false;
-        public int teacher_ID;//Change later
+        public int teacher_ID;
         _Project3_4DatabaseDataSetTableAdapters.Nov17_AssignmentsTableAdapter assignments_Adapter;
         _Project3_4DatabaseDataSetTableAdapters.Nov25_Difficulty_LevelsTableAdapter difficulty_Levels_Adapter;
         _Project3_4DatabaseDataSetTableAdapters.Nov17_SkillsTableAdapter skills_Adapter;
@@ -54,7 +54,11 @@ namespace Project_3_and_4
             Question_file_name_label.Hide();
             Information_Button.Hide();
             dataGridView1.Hide();
-            teacher_ID = 1;//Change
+        }
+
+        public void Teacher_Load(int teacher_ID_Load)
+        {
+            teacher_ID = teacher_ID_Load;
         }
 
         private void Create_Button_Click(object sender, EventArgs e)

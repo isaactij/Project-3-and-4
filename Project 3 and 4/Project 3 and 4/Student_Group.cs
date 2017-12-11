@@ -13,9 +13,16 @@ namespace Project_3_and_4
 {
     public partial class Student_Group : UserControl
     {
+        int studentID;
+
         public Student_Group()
         {
             InitializeComponent();
+        }
+
+        public void Student_Load(int student_ID_Load)
+        {
+            studentID = student_ID_Load;
         }
 
         public void Groups_addGroup_Button_Click(object sender, EventArgs e)
@@ -70,9 +77,6 @@ namespace Project_3_and_4
             _Project3_4DatabaseDataSetTableAdapters.Nov17_StudentsTableAdapter studentsAdapter;
             studentsAdapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_StudentsTableAdapter();
             DataTable studentsTable = studentsAdapter.GetData();
-            // dont know why we go to the last row
-            int lastRow = studentsTable.Rows.Count - 1;
-            int studentID = Convert.ToInt32(studentsTable.Rows[lastRow][0]);
 
             _Project3_4DatabaseDataSetTableAdapters.Nov17_GroupsTableAdapter groupsAdapter;
             groupsAdapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_GroupsTableAdapter();

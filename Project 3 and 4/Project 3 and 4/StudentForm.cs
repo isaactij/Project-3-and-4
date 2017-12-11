@@ -16,27 +16,30 @@ namespace Project_3_and_4
         _Project3_4DatabaseDataSetTableAdapters.Nov25_Student_LevelsTableAdapter student_Levels_Adapter;
         DataTable students_Table;
         DataTable student_Levels_Table;
-        int student_ID;//Change
-        int assignment_ID;
+        int student_ID;
 
         public StudentForm()
         {
             InitializeComponent();
         }
-        
-        public void Play_Assignment() {
-            panel1.Controls.Clear();
-            var myControl = new Student_Play_Assignments();
-            panel1.Controls.Add(myControl);
-            Level();
+
+        public void Student_Load(int student_ID_Load) {
+            student_ID = student_ID_Load;
         }
+        
+        //public void Play_Assignment() {
+        //    panel1.Controls.Clear();
+        //    var myControl = new Student_Play_Assignments();
+        //    panel1.Controls.Add(myControl);
+        //    Level();
+        //}
 
         private void StudentForm_Load(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
-            var myControl = new StudentChooseAssignment();
+            var myControl = new StudentChooseAssignment(student_ID);
+            //myControl.Student_Load(student_ID);
             panel1.Controls.Add(myControl);
-            student_ID = 1;//Change
             Level();
         }
 
@@ -85,6 +88,7 @@ namespace Project_3_and_4
         {
             panel1.Controls.Clear();
             var myControl = new Student_Group();
+            myControl.Student_Load(student_ID);
             panel1.Controls.Add(myControl);
             Level();
         }
