@@ -27,7 +27,7 @@ namespace Project_3_and_4
         DataTable students_Table;
         DataTable student_Levels_Table;
         //Change Later
-        int assignment_ID;
+        public int assignment_ID;
         //Change Later
         public int student_ID;
         bool has_Questions;
