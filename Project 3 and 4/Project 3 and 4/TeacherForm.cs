@@ -62,5 +62,12 @@ namespace Project_3_and_4
             Close();
 
         }
+
+        private void Student_Report_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            var myControl = new Teacher_Home();
+            panel1.Controls.Add(myControl);
+        }
     }
 }

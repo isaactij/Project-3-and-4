@@ -26,13 +26,6 @@ namespace Project_3_and_4
         public void Student_Load(int student_ID_Load) {
             student_ID = student_ID_Load;
         }
-        
-        //public void Play_Assignment() {
-        //    panel1.Controls.Clear();
-        //    var myControl = new Student_Play_Assignments();
-        //    panel1.Controls.Add(myControl);
-        //    Level();
-        //}
 
         private void StudentForm_Load(object sender, EventArgs e)
         {
@@ -91,6 +84,13 @@ namespace Project_3_and_4
             myControl.Student_Load(student_ID);
             panel1.Controls.Add(myControl);
             Level();
+        }
+
+        private void Assignments_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            var myControl = new StudentChooseAssignment(student_ID);
+            panel1.Controls.Add(myControl);
         }
     }
 }

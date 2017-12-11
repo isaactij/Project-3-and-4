@@ -64,6 +64,7 @@
             this.Assignments.TabIndex = 10;
             this.Assignments.Text = "Assignments";
             this.Assignments.UseVisualStyleBackColor = true;
+            this.Assignments.Click += new System.EventHandler(this.Assignments_Click);
             // 
             // panel1
             // 
