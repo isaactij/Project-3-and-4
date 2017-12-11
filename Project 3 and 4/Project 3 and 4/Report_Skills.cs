@@ -34,15 +34,7 @@ namespace Project_3_and_4
             questions_Table = questions_Adapter.GetData();
             Fill_Columns();
         }
-        private void Column_One_List_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void Column_Two_List_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
         public void Fill_Columns()
         {
             int count = skills_Table.Rows.Count;
@@ -69,6 +61,15 @@ namespace Project_3_and_4
                 }
                 Column_Two_List.Items.Add(average);
             }
+        }
+
+        private void Column_One_List_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void Column_Two_List_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

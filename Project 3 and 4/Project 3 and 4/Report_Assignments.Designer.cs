@@ -194,7 +194,7 @@
         private System.Windows.Forms.ListBox Column_Three_List;
         private System.Windows.Forms.ListBox Column_Two_List;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.CheckedListBox Column_One_List;
         private System.Windows.Forms.Button Remove_Button;
+        public System.Windows.Forms.CheckedListBox Column_One_List;
     }
 }

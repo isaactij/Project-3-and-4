@@ -29,15 +29,15 @@ namespace Project_3_and_4
         //Change Later
         int assignment_ID;
         //Change Later
-        int student_ID;
+        public int student_ID;
         bool has_Questions;
         string[,] questions;
-        int num_Of_Questions;
+        public int num_Of_Questions;
         int questions_Array_Index;
-        int[] correctAnswerLocation;
+        public int[] correctAnswerLocation;
         bool last_Question;
-        int[] user_Answers;
-        int[] level_Amounts;
+        public int[] user_Answers;
+        public int[] level_Amounts;
 
         public Student_Play_Assignments()
         {
@@ -46,7 +46,6 @@ namespace Project_3_and_4
 
         private void Student_Play_Assignments_Load(object sender, EventArgs e)
         {
-            assignment_ID = 23;
             student_ID = 1;
 
             assignments_Adapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_AssignmentsTableAdapter();
@@ -54,6 +53,11 @@ namespace Project_3_and_4
             assignment_Types_Adapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_Assignment_TypesTableAdapter();
             assignment_Types_Table = assignment_Types_Adapter.GetData();
             Set_Up_Panel();
+        }
+
+        public void set_ID(int ID)
+        {
+            assignment_ID = ID;
         }
 
         private void Set_Up_Panel()
@@ -304,22 +308,7 @@ namespace Project_3_and_4
                 }
             }
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Description_Text_label_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Question_Text_label_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void Next_Button_Click(object sender, EventArgs e)
         {
             save_User_Answer();
@@ -386,7 +375,7 @@ namespace Project_3_and_4
             }
         }
 
-        private void grade_Assignment()
+        public void grade_Assignment()
         {
             students_Adapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_StudentsTableAdapter();
             students_Table = students_Adapter.GetData();
@@ -449,5 +438,19 @@ namespace Project_3_and_4
             question_Number_Label.Hide();
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Description_Text_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Question_Text_label_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

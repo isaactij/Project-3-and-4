@@ -18,7 +18,7 @@ namespace Project_3_and_4
             InitializeComponent();
         }
 
-        private void Groups_addGroup_Button_Click(object sender, EventArgs e)
+        public void Groups_addGroup_Button_Click(object sender, EventArgs e)
         {
             if (Groups_Addgroup_Textbox.Text == "") return;
             Groups_Addgroup_Textbox.Text = Groups_Addgroup_Textbox.Text.ToUpper();
@@ -61,7 +61,7 @@ namespace Project_3_and_4
             }
         }
 
-        private void Groups_Accept_Button_Click(object sender, EventArgs e)
+        public void Groups_Accept_Button_Click(object sender, EventArgs e)
         {
             _Project3_4DatabaseDataSetTableAdapters.Nov17_Student_GroupsTableAdapter studentGroupsAdapter;
             studentGroupsAdapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_Student_GroupsTableAdapter();

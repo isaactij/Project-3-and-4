@@ -17,12 +17,13 @@ namespace Project_3_and_4
         DataTable students_Table;
         DataTable student_Levels_Table;
         int student_ID;//Change
+        int assignment_ID;
 
         public StudentForm()
         {
             InitializeComponent();
         }
-
+        
         public void Play_Assignment() {
             panel1.Controls.Clear();
             var myControl = new Student_Play_Assignments();
@@ -84,14 +85,6 @@ namespace Project_3_and_4
         {
             panel1.Controls.Clear();
             var myControl = new Student_Group();
-            panel1.Controls.Add(myControl);
-            Level();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            panel1.Controls.Clear();
-            var myControl = new Student_Play_Assignments();
             panel1.Controls.Add(myControl);
             Level();
         }

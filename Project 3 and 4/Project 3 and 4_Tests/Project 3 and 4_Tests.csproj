@@ -68,7 +68,13 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Teacher_Create_Assignment_Tests.cs" />
+    <Compile Include="Report_AssignmentsTests.cs" />
+    <Compile Include="Student_GroupTests.cs" />
+    <Compile Include="Student_Play_AssignmentsTests.cs" />
+    <Compile Include="Teacher_Create_AssignmentTests.cs" />
+    <Compile Include="_Project3_4DatabaseDataSet.cs">
+      <DependentUpon>_Project3_4DatabaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="_Project3_4DatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

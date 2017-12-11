@@ -14,6 +14,8 @@ namespace Project_3_and_4
     {
         int studentId = 1; // Change this to the real ID.
         int teacherId = 1; // Change this to the real ID.
+        int assignmentId;
+
         public StudentChooseAssignment()
         {
             InitializeComponent();
@@ -47,7 +49,7 @@ namespace Project_3_and_4
             assignmentsTableAdapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_AssignmentsTableAdapter();
             DataTable assignmentsTable = assignmentsTableAdapter.GetData();
             ListViewItem selectedListItem = (ListViewItem)listBox1.SelectedItem;
-            int assignmentId = Convert.ToInt32(selectedListItem.Tag);
+            assignmentId = Convert.ToInt32(selectedListItem.Tag);
             titleLabel.Text = "Title: ";
             typeLabel.Text = "Type: ";
             descriptionRichTextBox.Clear();
@@ -102,7 +104,7 @@ namespace Project_3_and_4
         private void openButton_Click(object sender, EventArgs e)
         {
             var myControl = new Student_Play_Assignments();
-            myControl.Parent = this.Parent;
+            myControl.set_ID(assignmentId);
             this.Parent.Controls.Add(myControl);
             this.Parent.Controls.Remove(this);
         }
