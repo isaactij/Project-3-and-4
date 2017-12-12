@@ -12,11 +12,27 @@ namespace Project_3_and_4
 {
     public partial class StudentChooseAssignment : UserControl
     {
-        int studentId = 1; // Change this to the real ID.
-        int teacherId = 1; // Change this to the real ID.
-        public StudentChooseAssignment()
+        int studentId;
+        int teacherId;
+        int assignmentId;
+
+        public StudentChooseAssignment(int student_ID_Load)
         {
             InitializeComponent();
+            Student_Load(student_ID_Load);
+            // Get teacherId
+            _Project3_4DatabaseDataSetTableAdapters.Nov18_Student_TeachersTableAdapter studentTeacherAdapter;
+            studentTeacherAdapter = new _Project3_4DatabaseDataSetTableAdapters.Nov18_Student_TeachersTableAdapter();
+            DataTable studentTeacherTable = studentTeacherAdapter.GetData();
+            for (int i = 0; i < studentTeacherTable.Rows.Count; i++)
+            {
+                if (Convert.ToInt32(studentTeacherTable.Rows[i][2]) == studentId)
+                {
+                    teacherId = Convert.ToInt32(studentTeacherTable.Rows[i][1]);
+                    break;
+                }
+            }
+
             titleLabel.Text = "Title: ";
             typeLabel.Text = "Type: ";
             descriptionRichTextBox.Clear();
@@ -41,13 +57,18 @@ namespace Project_3_and_4
             listBox1.ValueMember = "Tag";
         }
 
+        public void Student_Load(int student_ID_Load)
+        {
+            studentId = student_ID_Load;
+        }
+
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             _Project3_4DatabaseDataSetTableAdapters.Nov17_AssignmentsTableAdapter assignmentsTableAdapter;
             assignmentsTableAdapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_AssignmentsTableAdapter();
             DataTable assignmentsTable = assignmentsTableAdapter.GetData();
             ListViewItem selectedListItem = (ListViewItem)listBox1.SelectedItem;
-            int assignmentId = Convert.ToInt32(selectedListItem.Tag);
+            assignmentId = Convert.ToInt32(selectedListItem.Tag);
             titleLabel.Text = "Title: ";
             typeLabel.Text = "Type: ";
             descriptionRichTextBox.Clear();
@@ -101,8 +122,10 @@ namespace Project_3_and_4
 
         private void openButton_Click(object sender, EventArgs e)
         {
-            var myControl = new Student_Play_Assignments();
+            var myControl = new Student_Play_Assignments(assignmentId, studentId);
             myControl.Parent = this.Parent;
+            //myControl.set_ID(assignmentId);
+            //myControl.Student_Load(studentId);
             this.Parent.Controls.Add(myControl);
             this.Parent.Controls.Remove(this);
         }

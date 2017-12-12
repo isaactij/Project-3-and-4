@@ -36,36 +36,7 @@ namespace Project_3_and_4
             assignment_Grade = assignment_Grade_Adapter.GetData();
             Fill_Columns();
         }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Page_Title_Label_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void Column_One_List_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Column_Two_List_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Column_Three_List_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Column_Four_List_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
         public void Fill_Columns()
         {
             Column_One_List.Items.Clear();
@@ -74,6 +45,8 @@ namespace Project_3_and_4
             Column_Four_List.Items.Clear();
             assignments_Adapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_AssignmentsTableAdapter();
             assignments_Table = assignments_Adapter.GetData();
+            assignment_Types_Adapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_Assignment_TypesTableAdapter();
+            assignment_Types_Table = assignment_Types_Adapter.GetData();
             int count = assignments_Table.Rows.Count;
             for (int i = 0; i < count; i++)
             {
@@ -116,7 +89,7 @@ namespace Project_3_and_4
             }
         }
 
-        private void Remove_Button_Click(object sender, EventArgs e)
+        public void Remove_Button_Click(object sender, EventArgs e)
         {
             assignments_Adapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_AssignmentsTableAdapter();
             assignment_Grade_Adapter = new _Project3_4DatabaseDataSetTableAdapters.Nov18_Assignment_GradeTableAdapter();
@@ -165,6 +138,35 @@ namespace Project_3_and_4
                     }
                 }
             }
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Page_Title_Label_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void Column_One_List_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Column_Two_List_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Column_Three_List_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Column_Four_List_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

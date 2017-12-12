@@ -34,6 +34,7 @@ namespace Project_3_and_4
                     loggedIn = true;
                     this.Hide();
                     StudentForm studentForm = new StudentForm();
+                    studentForm.Student_Load(Convert.ToInt32(student_table.Rows[i][1]));
                     studentForm.ShowDialog();
                     this.Show();
                 }
@@ -52,6 +53,7 @@ namespace Project_3_and_4
                     loggedIn = true;
                     this.Hide();
                     TeacherForm teacherForm = new TeacherForm();
+                    teacherForm.Teacher_Load(Convert.ToInt32(teacher_table.Rows[i][1]));
                     teacherForm.ShowDialog();
                     this.Show();
                 }

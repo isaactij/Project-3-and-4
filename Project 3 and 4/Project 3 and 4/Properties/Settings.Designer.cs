@@ -53,5 +53,15 @@ namespace Project_3_and_4.Properties {
                 return ((string)(this["Database2ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\Database2.accdb")]
+        public string Database2ConnectionString1 {
+            get {
+                return ((string)(this["Database2ConnectionString1"]));
+            }
+        }
     }
 }

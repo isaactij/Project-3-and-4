@@ -14,29 +14,59 @@ namespace Project_3_and_4
     {
         _Project3_4DatabaseDataSetTableAdapters.Nov17_StudentsTableAdapter students_Adapter;
         _Project3_4DatabaseDataSetTableAdapters.Nov25_Student_LevelsTableAdapter student_Levels_Adapter;
+        _Project3_4DatabaseDataSetTableAdapters.Nov17_GroupsTableAdapter group_Adapter;
+        _Project3_4DatabaseDataSetTableAdapters.Nov17_Student_GroupsTableAdapter student_Group_Adapter;
         DataTable students_Table;
         DataTable student_Levels_Table;
-        int student_ID;//Change
+        DataTable group_Table;
+        DataTable student_Group_Table;
+        int student_ID;
 
         public StudentForm()
         {
             InitializeComponent();
+            Group();
         }
 
-        public void Play_Assignment() {
-            panel1.Controls.Clear();
-            var myControl = new Student_Play_Assignments();
-            panel1.Controls.Add(myControl);
-            Level();
+        public void Student_Load(int student_ID_Load) {
+            student_ID = student_ID_Load;
         }
 
         private void StudentForm_Load(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
-            var myControl = new StudentChooseAssignment();
+            var myControl = new StudentChooseAssignment(student_ID);
+            //myControl.Student_Load(student_ID);
             panel1.Controls.Add(myControl);
-            student_ID = 1;//Change
             Level();
+            Group();
+        }
+
+        public void Group() {
+            student_Group_Adapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_Student_GroupsTableAdapter();
+            student_Group_Table = student_Group_Adapter.GetData();
+            int group_ID = 0;
+            string group_Name = "";
+            for (int i = 0; i < student_Group_Table.Rows.Count; i++) {
+                if (Convert.ToInt32(student_Group_Table.Rows[i][1]) == student_ID) {
+                    group_ID = Convert.ToInt32(student_Group_Table.Rows[i][2]);
+                }
+            }
+            group_Adapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_GroupsTableAdapter();
+            group_Table = group_Adapter.GetData();
+            for (int i = 0; i < group_Table.Rows.Count; i++) {
+                if (Convert.ToInt32(group_Table.Rows[i][0]) == group_ID) {
+                    group_Name = Convert.ToString(group_Table.Rows[i][1]);
+                }
+            }
+            if (group_Name.Equals(""))
+            {
+                Group_Label.Hide();
+            }
+            else {
+                Group_Label.Show();
+                Group_Label.Text = "Group: " + group_Name;
+            }
         }
 
         private void Level() {
@@ -84,16 +114,19 @@ namespace Project_3_and_4
         {
             panel1.Controls.Clear();
             var myControl = new Student_Group();
+            myControl.Student_Load(student_ID);
             panel1.Controls.Add(myControl);
             Level();
+            Group();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Assignments_Click(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
-            var myControl = new Student_Play_Assignments();
+            var myControl = new StudentChooseAssignment(student_ID);
             panel1.Controls.Add(myControl);
             Level();
+            Group();
         }
     }
 }

@@ -26,34 +26,41 @@ namespace Project_3_and_4
         DataTable difficutly_Levels_Table;
         DataTable students_Table;
         DataTable student_Levels_Table;
-        //Change Later
-        int assignment_ID;
-        //Change Later
-        int student_ID;
+        public int assignment_ID;
+        public int student_ID;
         bool has_Questions;
         string[,] questions;
-        int num_Of_Questions;
+        public int num_Of_Questions;
         int questions_Array_Index;
-        int[] correctAnswerLocation;
+        public int[] correctAnswerLocation;
         bool last_Question;
-        int[] user_Answers;
-        int[] level_Amounts;
+        public int[] user_Answers;
+        public int[] level_Amounts;
 
-        public Student_Play_Assignments()
+        public Student_Play_Assignments(int assignment, int student)
         {
             InitializeComponent();
+            Student_Load(student);
+            set_ID(assignment);
         }
 
         private void Student_Play_Assignments_Load(object sender, EventArgs e)
         {
-            assignment_ID = 23;
-            student_ID = 1;
-
             assignments_Adapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_AssignmentsTableAdapter();
             assignments_Table = assignments_Adapter.GetData();
             assignment_Types_Adapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_Assignment_TypesTableAdapter();
             assignment_Types_Table = assignment_Types_Adapter.GetData();
             Set_Up_Panel();
+        }
+
+        public void set_ID(int ID)
+        {
+            assignment_ID = ID;
+        }
+
+        public void Student_Load(int student_ID_Load)
+        {
+            student_ID = student_ID_Load;
         }
 
         private void Set_Up_Panel()
@@ -304,22 +311,7 @@ namespace Project_3_and_4
                 }
             }
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Description_Text_label_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Question_Text_label_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void Next_Button_Click(object sender, EventArgs e)
         {
             save_User_Answer();
@@ -386,7 +378,7 @@ namespace Project_3_and_4
             }
         }
 
-        private void grade_Assignment()
+        public void grade_Assignment()
         {
             students_Adapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_StudentsTableAdapter();
             students_Table = students_Adapter.GetData();
@@ -402,7 +394,8 @@ namespace Project_3_and_4
             }
             for (int i = 0; i < students_Table.Rows.Count; i++) {
                 if (Convert.ToInt32(students_Table.Rows[i][0]) == student_ID) {
-                    int new_Level_Amount = Convert.ToInt32(students_Table.Rows[i][4]) + level_To_Add;
+                    int original_Level_Amount = Convert.ToInt32(students_Table.Rows[i][4]);
+                    int new_Level_Amount = original_Level_Amount + level_To_Add;
                     int student_Level = Convert.ToInt32(students_Table.Rows[i][3]);
                     for (int j = 0; j < student_Levels_Table.Rows.Count; j++) {
                         if (Convert.ToInt32(student_Levels_Table.Rows[j][0]) == student_Level) {
@@ -412,11 +405,11 @@ namespace Project_3_and_4
                                     if (Convert.ToInt32(student_Levels_Table.Rows[j + 1][2]) < new_Level_Amount)
                                     {
                                         new_Level_Amount = new_Level_Amount - Convert.ToInt32(student_Levels_Table.Rows[j + 1][2]);
-                                        students_Adapter.UpdateQuery(Convert.ToInt32(student_Levels_Table.Rows[j + 1][0]), new_Level_Amount, student_ID, student_ID);
+                                        students_Adapter.UpdateQuery(new_Level_Amount, Convert.ToInt32(student_Levels_Table.Rows[j + 1][0]), student_ID, student_Level, original_Level_Amount);
                                     }
                                     else
                                     {
-                                        students_Adapter.UpdateQuery(Convert.ToInt32(student_Levels_Table.Rows[j][0]), new_Level_Amount, student_ID, student_ID);
+                                        students_Adapter.UpdateQuery(new_Level_Amount, Convert.ToInt32(student_Levels_Table.Rows[j][0]), student_ID, student_Level, original_Level_Amount);
                                     }
                                 }
                             }
@@ -424,10 +417,10 @@ namespace Project_3_and_4
                             {
                                 if (Convert.ToInt32(student_Levels_Table.Rows[j + 1][2]) < new_Level_Amount)
                                 {
-                                    students_Adapter.UpdateQuery(Convert.ToInt32(student_Levels_Table.Rows[j + 1][0]), 0, student_ID, student_ID);
+                                    students_Adapter.UpdateQuery(0, Convert.ToInt32(student_Levels_Table.Rows[j + 1][0]), student_ID, student_Level, original_Level_Amount);
                                 }
                                 else {
-                                    students_Adapter.UpdateQuery(Convert.ToInt32(student_Levels_Table.Rows[j][0]), new_Level_Amount, student_ID, student_ID);
+                                    students_Adapter.UpdateQuery(new_Level_Amount, Convert.ToInt32(student_Levels_Table.Rows[j][0]), student_ID, student_Level, original_Level_Amount);
                                 }
                                 
                             }
@@ -438,7 +431,7 @@ namespace Project_3_and_4
             
             double grade = (amount_Answered_Correctly / num_Of_Questions) * 100;
             grades_Adapter = new _Project3_4DatabaseDataSetTableAdapters.Nov18_Assignment_GradeTableAdapter();
-            grades_Adapter.InsertQuery(student_ID, assignment_ID, grade);
+            grades_Adapter.InsertQuery(student_ID, assignment_ID, (int)grade);
             Question_Text_label.Text = "Grade: " + grade + "%";
             Answer_button1.Hide();
             Answer_button2.Hide();
@@ -449,5 +442,19 @@ namespace Project_3_and_4
             question_Number_Label.Hide();
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Description_Text_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Question_Text_label_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

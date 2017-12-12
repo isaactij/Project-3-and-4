@@ -43,6 +43,7 @@
             this.Groups_Checkbox.Name = "Groups_Checkbox";
             this.Groups_Checkbox.Size = new System.Drawing.Size(120, 94);
             this.Groups_Checkbox.TabIndex = 0;
+            this.Groups_Checkbox.SelectedIndexChanged += new System.EventHandler(this.Groups_Checkbox_SelectedIndexChanged);
             // 
             // Groups_Label
             // 

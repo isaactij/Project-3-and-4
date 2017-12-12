@@ -15,7 +15,7 @@ namespace Project_3_and_4
     {
         public static string[] skills_List;
         bool errors = false;
-        int teacher_ID;//Change later
+        public int teacher_ID;
         _Project3_4DatabaseDataSetTableAdapters.Nov17_AssignmentsTableAdapter assignments_Adapter;
         _Project3_4DatabaseDataSetTableAdapters.Nov25_Difficulty_LevelsTableAdapter difficulty_Levels_Adapter;
         _Project3_4DatabaseDataSetTableAdapters.Nov17_SkillsTableAdapter skills_Adapter;
@@ -25,11 +25,11 @@ namespace Project_3_and_4
         DataTable assignment_Types_Table;
         DataTable difficulty_Levels_Table;
         bool display_Information;
-        string[,] questions;
+        public string[,] questions;
         DataGridViewTextBoxColumn questions_Column;
         DataGridViewComboBoxColumn difficulties;
         DataGridViewComboBoxColumn skills;
-        bool display_Add_Difficulty_Button;
+        public bool display_Add_Difficulty_Button;
         bool display_Remove_Difficulty_Button;
 
         public Teacher_Create_Assignment()
@@ -56,6 +56,11 @@ namespace Project_3_and_4
             dataGridView1.Hide();
         }
 
+        public void Teacher_Load(int teacher_ID_Load)
+        {
+            teacher_ID = teacher_ID_Load;
+        }
+
         private void Create_Button_Click(object sender, EventArgs e)
         {
             check_For_Errors();
@@ -75,7 +80,7 @@ namespace Project_3_and_4
 
         public void Add_Assignment_To_Database()
         {
-            teacher_ID = 1;
+            
             assignments_Adapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_AssignmentsTableAdapter();
             assignment_Types_Adapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_Assignment_TypesTableAdapter();
             assignment_Types_Table = assignment_Types_Adapter.GetData();
@@ -189,18 +194,11 @@ namespace Project_3_and_4
             {
                 //Reads next line
                 line = reader.ReadLine();
-                //Adds read line to the return string
-                //questions_For_Assignment_File += line;
                 //If there is not another string to be read
                 if (reader.Peek() < 0)
                 {
                     //continue_Reading is set to false which will stop the while loop
                     continue_Reading = false;
-                }
-                else
-                {
-                    //Add semicolon to sparate the question and answer sets
-                    //questions_For_Assignment_File += "; ";
                 }
                 string[] split = line.Split(';');
                 Error_Label.Text = "";
@@ -219,10 +217,9 @@ namespace Project_3_and_4
                 }
             }
             reader.Close();
-            //return questions_For_Assignment_File;
         }
 
-        private void check_For_Errors()
+        public void check_For_Errors()
         {
             Error_Label.Text = "";
             errors = false;
@@ -278,7 +275,7 @@ namespace Project_3_and_4
             }
         }
 
-        private void Fill_Table()
+        public void Fill_Table()
         {
             dataGridView1.Rows.Clear();
             dataGridView1.Columns.Clear();
@@ -306,7 +303,6 @@ namespace Project_3_and_4
                     skills.Items.Add(Convert.ToString(skillsTable.Rows[i][1]));
                 }
             }
-            //skills.DefaultCellStyle.NullValue = skills.Items[0];
             dataGridView1.Columns.Add(skills);
 
             for (int i = 0; i < questions.GetLength(0); i++)
@@ -316,7 +312,6 @@ namespace Project_3_and_4
                     dataGridView1.Rows.Add(questions[i, 0]);
                 }
             }
-            //difficulties.DefaultCellStyle.NullValue = difficulties.Items[0];
             dataGridView1.Columns.Add(difficulties);
         }
 
@@ -339,10 +334,11 @@ namespace Project_3_and_4
             }
         }
 
-        private void add_skill_button_Click(object sender, EventArgs e)
+        public void add_skill_button_Click(object sender, EventArgs e)
         {
-            const int teacherID = 1; // TODO: Change this with real teacherID
-            if (Skills_add_skill_text.Text == "") return;
+            if (Skills_add_skill_text.Text == "") {
+                return;
+            }
             Skills_add_skill_text.Text = Skills_add_skill_text.Text.ToUpper();
             _Project3_4DatabaseDataSetTableAdapters.Nov17_SkillsTableAdapter skillsTableAdapter;
             skillsTableAdapter = new _Project3_4DatabaseDataSetTableAdapters.Nov17_SkillsTableAdapter();
@@ -350,7 +346,7 @@ namespace Project_3_and_4
             int dup = 0;
             for (int i = 0; i < skillsTable.Rows.Count; i++)
             {
-                if (Convert.ToInt32(skillsTable.Rows[i][2]) == teacherID)
+                if (Convert.ToInt32(skillsTable.Rows[i][2]) == teacher_ID)
                 {
                     String skillName = Convert.ToString(skillsTable.Rows[i][1]);
                     if (skillName == Skills_add_skill_text.Text)
@@ -362,19 +358,19 @@ namespace Project_3_and_4
             }
             if (dup == 0)
             {
-                skillsTableAdapter.InsertQuery(Skills_add_skill_text.Text, teacherID);
+                skillsTableAdapter.InsertQuery(Skills_add_skill_text.Text, teacher_ID);
             }
             else
             {
                 error("Duplicated skill. ");
             }
             Skills_add_skill_text.Text = "";
-            Fill_Table();
+                Fill_Table();
+            
         }
 
-        private void remove_skill_button_Click(object sender, EventArgs e)
+        public void remove_skill_button_Click(object sender, EventArgs e)
         {
-            const int teacherID = 1; // TODO: Change this with real teacherID
             if (Skills_add_skill_text.Text == "") return;
             Skills_add_skill_text.Text = Skills_add_skill_text.Text.ToUpper();
             _Project3_4DatabaseDataSetTableAdapters.Nov17_SkillsTableAdapter skillsTableAdapter;
@@ -382,7 +378,7 @@ namespace Project_3_and_4
             DataTable skillsTable = skillsTableAdapter.GetData();
             for (int i = 0; i < skillsTable.Rows.Count; i++)
             {
-                if (Convert.ToInt32(skillsTable.Rows[i][2]) == teacherID)
+                if (Convert.ToInt32(skillsTable.Rows[i][2]) == teacher_ID)
                 {
                     int skillID = Convert.ToInt32(skillsTable.Rows[i][0]);
                     String skillName = Convert.ToString(skillsTable.Rows[i][1]);
@@ -397,7 +393,7 @@ namespace Project_3_and_4
                         {
                             if (Convert.ToInt32(questionsTable.Rows[j][2]) == skillID)
                             {
-                                Error_Label.Text = "Cannot remove this skill. Please remove the assignment has this skill first.";
+                                Error_Label.Text = "Cannot remove this skill. Please remove the assignment has this skill first. ";
                                 removeOk = 0;
                                 break;
                             }
@@ -405,7 +401,7 @@ namespace Project_3_and_4
                         if (removeOk == 1)
                         {
                             // remove skill
-                            skillsTableAdapter.DeleteQuery(skillID, teacherID);
+                            skillsTableAdapter.DeleteQuery(skillID, teacher_ID);
                         }
                     }
                 }
@@ -469,7 +465,7 @@ namespace Project_3_and_4
 
         }
 
-        private void Add_or_Remove_Button_Click(object sender, EventArgs e)
+        public void Add_or_Remove_Button_Click(object sender, EventArgs e)
         {
             difficulty_Levels_Adapter = new _Project3_4DatabaseDataSetTableAdapters.Nov25_Difficulty_LevelsTableAdapter();
             difficulty_Levels_Table = difficulty_Levels_Adapter.GetData();

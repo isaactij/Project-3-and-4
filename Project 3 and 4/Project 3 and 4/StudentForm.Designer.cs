@@ -35,7 +35,7 @@
             this.Group_Button = new System.Windows.Forms.Button();
             this.Level_ProgressBar = new System.Windows.Forms.ProgressBar();
             this.Level_Label = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Group_Label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Username
@@ -65,6 +65,7 @@
             this.Assignments.TabIndex = 10;
             this.Assignments.Text = "Assignments";
             this.Assignments.UseVisualStyleBackColor = true;
+            this.Assignments.Click += new System.EventHandler(this.Assignments_Click);
             // 
             // panel1
             // 
@@ -100,22 +101,21 @@
             this.Level_Label.TabIndex = 16;
             this.Level_Label.Text = "Level:";
             // 
-            // button1
+            // Group_Label
             // 
-            this.button1.Location = new System.Drawing.Point(239, 40);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Group_Label.AutoSize = true;
+            this.Group_Label.Location = new System.Drawing.Point(239, 47);
+            this.Group_Label.Name = "Group_Label";
+            this.Group_Label.Size = new System.Drawing.Size(39, 13);
+            this.Group_Label.TabIndex = 17;
+            this.Group_Label.Text = "Group:";
             // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 461);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Group_Label);
             this.Controls.Add(this.Level_Label);
             this.Controls.Add(this.Level_ProgressBar);
             this.Controls.Add(this.Group_Button);
@@ -140,7 +140,7 @@
         private System.Windows.Forms.Button Group_Button;
         private System.Windows.Forms.ProgressBar Level_ProgressBar;
         private System.Windows.Forms.Label Level_Label;
-        public System.Windows.Forms.Button button1;
         public System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Label Group_Label;
     }
 }
